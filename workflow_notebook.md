@@ -31,8 +31,10 @@ Or run with nohup &
 ##### 1.2 Run gtdb-tk    
 
     source software/gtdb-tk/bin/activate
-    GTDBTK_DATA_PATH=/home/lianchun.yi1/software/gtdb-tk/bin/release214
-    
+should apply more memory and CUP to run gtdbtk, as the pplacer would be killed.
+
+    salloc --mem=100G -c 16 -N 6 -n 16  -t 04:00:00
+
     gtdbtk classify_wf --genes --genome_dir /home/lianchun.yi1/data/chinese_mags/385-protein -x .faa --out_dir /home/lianchun.yi1/data/chinese_mags/gtdbtk_run1 --cpus 6 --skip_ani_screen
 
 
