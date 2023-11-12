@@ -20,9 +20,8 @@ References can be found below:
 
     cd software/CheckM2
     conda activate checkm2
-    bin/checkm2 predict
 
-    bin/checkm2 predict -t 30 -x fa --input /home/lianchun.yi1/data/chinese_mags/385-genome --output-directory /home/lianchun.yi1/data/chinese_mags/checkm2_run1 &
+    bin/checkm2 predict -t 30 -x fa --input /home/lianchun.yi1/data/chinese_mags/385-genome --output-directory /home/lianchun.yi1/data/chinese_mags/checkm2_run1
 385 genome spend 1 hour
 
 Or run with nohup &
