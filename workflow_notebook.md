@@ -32,6 +32,7 @@ Or run with nohup &
 
     source software/gtdb-tk/bin/activate
     GTDBTK_DATA_PATH=/home/lianchun.yi1/software/gtdb-tk/bin/release214
+    
     gtdbtk classify_wf --genes --genome_dir /home/lianchun.yi1/data/chinese_mags/385-protein -x .faa --out_dir /home/lianchun.yi1/data/chinese_mags/gtdbtk_run1 --cpus 6 --skip_ani_screen
 
 
