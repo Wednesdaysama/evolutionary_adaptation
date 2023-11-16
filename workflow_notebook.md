@@ -30,8 +30,8 @@ References can be found below:
 
 ##### 1.1 Run checkm2 
 
-    cd software/CheckM2
-    conda activate checkm2
+    cd ~/software/CheckM2
+    conda activate ~/software/CheckM2/checkm2
 
     bin/checkm2 predict -t 30 -x fa --input /home/lianchun.yi1/data/chinese_mags/385-genome --output-directory /home/lianchun.yi1/data/chinese_mags/checkm2_run1
 385 genome spend 1 hour
@@ -42,7 +42,7 @@ Or run with nohup &
 
 ##### 1.2 Run gtdb-tk    
 
-    source software/gtdb-tk/bin/activate
+    source ~/software/gtdb-tk/bin/activate
 should apply more memory and CUP to run gtdbtk, as the pplacer would be killed.
 
     salloc --mem=100G -c 16 -N 6 -n 16  -t 04:00:00
