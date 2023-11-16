@@ -1,5 +1,5 @@
 
-### This is a notebook recording all the steps I have already done.
+### This is a notebook recording all the steps I have already done. Check here for Dr. Strous' [installation](https://github.com/kinestetika/cloud-computing-for-microbial-ecology/blob/main/cloud_bio_installs.py).
 
 
 #### 1. Data Acquisition (except Inner Mongolia soda lake)
@@ -12,15 +12,6 @@ References can be found below:
 * [Cariboo paper](https://www.nature.com/articles/s41467-019-12195-5) and [data](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA377096).
 
 ##### 1.1 download data from Kulunda and Cariboo paper
-
-
-
-
-
-
-
-
-
 
 
 ##### 1.0 Launch an interactive session on ARC:
