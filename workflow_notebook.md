@@ -1,6 +1,33 @@
 
 ### This is a notebook recording all the steps I have already done. Check here for Dr. Strous' [installation](https://github.com/kinestetika/cloud-computing-for-microbial-ecology/blob/main/cloud_bio_installs.py).
 
+#### 0 Submit a job to ARC: using blastp as an example.
+##### 0.1 Create a .slurm file:
+
+    nano bicar_blastp.slurm
+
+##### 0.2 Put the content below into the .slurm file:
+
+    #!/bin/bash
+    #SBATCH --job-name=bicar      # Job name
+    #SBATCH --nodes=4             # Run all processes on a single node
+    #SBATCH --ntasks=4            # Run 4 tasks
+    #SBATCH --cpus-per-task=50    # Number of CPU cores per task
+    #SBATCH --mem=200G            # Job memory request
+    #SBATCH --time=48:00:00       # Time limit hrs:min:sec
+    #SBATCH --output=blast%j.log  # Standard output and error log
+    pwd; hostname; date
+    
+    blastp -query ~/databases/Soda_lakes_DB_Flag2_no_separator_V5.fasta -db bicar_db -out ~/data/bicar_blastp_run7 -outfmt 6
+
+##### 0.3 Submit the bicar_blastp.slurm to ARC
+ 
+    sbatch bicar_blastp.slurm
+A job ID will be generated.
+##### 0.4 Job Monitoring
+
+    squeue <Job ID> 
+    arc.job-info <Job ID>
 
 #### 1. Data Acquisition (except Inner Mongolia soda lake)
 There are three alkaline soda lakes: Kulunda Steppe, Inner Mongolia and Cariboo plateau.
