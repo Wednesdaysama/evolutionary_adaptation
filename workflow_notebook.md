@@ -26,8 +26,11 @@
 A job ID will be generated.
 ##### 0.4 Job Monitoring
 
-    squeue <Job ID> 
+    squeue # check the running queue
     arc.job-info <Job ID>
+##### 0.5 Cancel the Job
+
+    scancel <Job ID> 
 
 #### 1. Data Acquisition (except Inner Mongolia soda lake)
 There are three alkaline soda lakes: Kulunda Steppe, Inner Mongolia and Cariboo plateau.
