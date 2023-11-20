@@ -10,12 +10,14 @@
 
     #!/bin/bash
     #SBATCH --job-name=bicar      # Job name
-    #SBATCH --nodes=4             # Run all processes on a single node
+    #SBATCH --nodes=1             # Run all processes on a single node
     #SBATCH --ntasks=4            # Run 4 tasks
     #SBATCH --cpus-per-task=50    # Number of CPU cores per task
-    #SBATCH --mem=200G            # Job memory request
+    #SBATCH --mem=100G            # Job memory request
     #SBATCH --time=48:00:00       # Time limit hrs:min:sec
     #SBATCH --output=blast%j.log  # Standard output and error log
+    #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
+#SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
     pwd; hostname; date
     
     blastp -query ~/databases/Soda_lakes_DB_Flag2_no_separator_V5.fasta -db bicar_db -out ~/data/bicar_blastp_run7 -outfmt 6
