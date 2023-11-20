@@ -17,7 +17,7 @@
     #SBATCH --time=48:00:00       # Time limit hrs:min:sec
     #SBATCH --output=blast%j.log  # Standard output and error log
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
-#SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
+    #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
     pwd; hostname; date
     
     blastp -query ~/databases/Soda_lakes_DB_Flag2_no_separator_V5.fasta -db bicar_db -out ~/data/bicar_blastp_run7 -outfmt 6
