@@ -5,6 +5,7 @@
 ##### 0.1 Create a .slurm file:
 
     nano bicar_blastp.slurm
+    arc.nodes  # check the available partition nodes
 
 ##### 0.2 Put the content below into the .slurm file:
 
@@ -20,7 +21,7 @@
     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
     pwd; hostname; date
     
-    blastp -query ~/databases/Soda_lakes_DB_Flag2_no_separator_V5.fasta -db bicar_db -out ~/data/bicar_blastp_run7 -outfmt 6
+    blastp -query ~/databases/Soda_lakes_DB_Flag2_no_separator_V5.fasta -db bicar_db -out ~/data/bicar_blastp_run7 -outfmt 6 -evalue 0.001
 
 ##### 0.3 Submit the bicar_blastp.slurm to ARC
  
