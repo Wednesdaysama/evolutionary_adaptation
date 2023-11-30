@@ -1,5 +1,5 @@
 
-### This is a notebook recording all the steps I have already done. Check here for Dr. Strous' [installation](https://github.com/kinestetika/cloud-computing-for-microbial-ecology/blob/main/cloud_bio_installs.py).
+### This is a notebook recording all the steps I have already done. Check here for Dr. Strous' [installation](https://github.com/kinestetika/cloud-computing-for-microbial-ecology/blob/main/cloud_bio_installs.py). For [cheat help](https://github.com/Wednesdaysama/cheat-sheet/blob/main/cheat%20sheet.md).
 
 #### 0 Submit a job to ARC: using blastp as an example.
 ##### 0.1 Create a .slurm file:
@@ -49,7 +49,7 @@ References can be found below:
 
 ##### 1.0 Launch an interactive session on ARC:
 
-    salloc --mem=10G -c 1 -N 1 -n 1  -t 04:00:00
+    salloc --mem=10G -c 1 -N 1 -n 1  -t 02:00:00
 
 
 ##### 1.1 Run checkm2 
