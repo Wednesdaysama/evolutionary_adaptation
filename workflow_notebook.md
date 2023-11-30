@@ -12,10 +12,10 @@
     #!/bin/bash
     #SBATCH --job-name=bicar      # Job name
     #SBATCH --nodes=1             # Run all processes on a single node
-    #SBATCH --ntasks=4            # Run 4 tasks
-    #SBATCH --cpus-per-task=50    # Number of CPU cores per task
-    #SBATCH --mem=100G            # Job memory request
-    #SBATCH --time=48:00:00       # Time limit hrs:min:sec
+    #SBATCH --ntasks=1            # Run 4 tasks
+    #SBATCH --cpus-per-task=1    # Number of CPU cores per task
+    #SBATCH --mem=20G            # Job memory request
+    #SBATCH --time=4:00:00       # Time limit hrs:min:sec
     #SBATCH --output=blast%j.log  # Standard output and error log
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
