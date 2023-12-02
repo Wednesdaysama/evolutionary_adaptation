@@ -1,0 +1,26 @@
+Metaerg
+metaerg  --contig_file ~/databases/test.fasta --database_dir /work/ebg_lab/referenceDatabases/metaerg_database --output_dir ~/data/metaerg
+
+'''
+metaerg installation
+'''
+#first made conda env for metaerg
+$conda create -n metaerg python=3.10
+$conda activate metaerg   
+
+#needed to install virtualenv
+$pip install virtualenv
+
+$python -m virtualenv metaerg-env
+$source metaerg-env/bin/activate
+$pip install --upgrade metaerg
+
+#first error: Failed to build h5py pyarrow ERROR: Could not build wheels for h5py, $
+$pip install pyarrow
+
+
+$metaerg --install_deps /work/ebg_lab/referenceDatabases/metaerg-env/bin --database_$
+  --path_to_tmhmm path/to/tmhmm.tar.gz
+
+$source /path/to/bin_dir/profile
+$metaerg --download_database --database_dir /path/to/metaerg-databases/
