@@ -1,7 +1,7 @@
 awk '$3>80 {print}' C5_nr.txt > C5_nr_80%.txt
 
 grep "^>" /work/ebg_lab/referenceDatabases/metaerg_database/db_protein.faa > ~/databases/protein_name.txt
-
+grep "^>p~22808~1821~WP_068787424.1~~261~56" /work/ebg_lab/referenceDatabases/metaerg_database/db_protein.faa
 
 
 
