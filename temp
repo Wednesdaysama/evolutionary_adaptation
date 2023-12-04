@@ -6,6 +6,10 @@ grep "^>p~22808~1821~WP_068787424.1~~261~56" /work/ebg_lab/referenceDatabases/me
 source ~/software/metaerg/metaerg-env/bin/activate
 python replace_ID_with_annatation.py
 
+/home/lianchun.yi1/databases/C1_proteomics_part/C1_prot_part23.fasta
+
+
+
 
 
 
