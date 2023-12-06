@@ -69,7 +69,7 @@ Or run with nohup &
     source ~/software/gtdb-tk/bin/activate
 should apply more memory and CUP to run gtdbtk, as the pplacer would be killed.
 
-    salloc --mem=100G -c 16 -N 6 -n 16  -t 04:00:00
+    salloc --mem=20G -c 16 -N 1 -n 1  -t 04:00:00
 
     gtdbtk classify_wf --genes --genome_dir /home/lianchun.yi1/data/chinese_mags/385-protein -x .faa --out_dir /home/lianchun.yi1/data/chinese_mags/gtdbtk_run1 --cpus 6 --skip_ani_screen
 
