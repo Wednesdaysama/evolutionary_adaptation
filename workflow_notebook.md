@@ -29,7 +29,7 @@
 A job ID will be generated.
 ##### 0.4 Job Monitoring
 
-    squeue-long -u <username> # check the user's running queue
+    squeue-long -u username # check the user's running queue
     arc.job-info <Job ID>
 ##### 0.5 Cancel the Job
 
