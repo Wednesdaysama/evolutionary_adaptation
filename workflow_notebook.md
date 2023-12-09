@@ -73,6 +73,10 @@ should apply more memory and CUP to run gtdbtk, as the pplacer would be killed.
 
     gtdbtk classify_wf --genes --genome_dir /home/lianchun.yi1/data/chinese_mags/385-protein -x .faa --out_dir /home/lianchun.yi1/data/chinese_mags/gtdbtk_run1 --cpus 6 --skip_ani_screen
 
+##### 0 Run cd-hit to remove duplicate sequence
+
+     cd-hit -i Nodosilinea.faa -o Nodosilinea_cd-hit.faa -c 0.95 -n 5 -T 8
+
 
 ##### 1.3 CheckM2 and GTDB-Tk results process
 1.3.1 Make a dictionary called new_genomes:
