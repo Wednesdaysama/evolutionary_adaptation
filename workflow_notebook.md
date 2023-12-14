@@ -76,6 +76,15 @@ should apply more memory and CUP to run gtdbtk, as the pplacer would be killed.
 ##### 0 Run cd-hit to remove duplicate sequence
 
      cd-hit -i Nodosilinea.faa -o Nodosilinea_cd-hit.faa -c 0.95 -n 5 -T 8
+##### 0 Run metaerg
+Activate the virtual environment:
+
+    source /bio/bin/profile
+    echo $PATH
+    source /bio/bin/python-env/bin/activate
+Run metaerg:
+
+    nohup metaerg --contig_file /bio/data/Lianchun/nodosilinea/ --database_dir /bio/databases/metaerg --file_extension .fna --output_dir /bio/data/Lianchun/metaerg_nodosilinea_result/ &
 
 
 ##### 1.3 CheckM2 and GTDB-Tk results process
