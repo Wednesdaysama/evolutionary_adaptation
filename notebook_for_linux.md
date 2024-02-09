@@ -19,12 +19,16 @@ or run with nohup &
 
 
 #### Anaconda
-start the anaconda nevigator:
 
+
+    nano .bashrc # in the home directory run this
+    export PATH="$HOME/anaconda3/bin:$PATH" # add this command to the .bashrc file
+    source .bashrc # update the PATH
+    
+start the anaconda nevigator in the home directory:
     anaconda-nevigator
 
-start the jupyterlab or notebook:
-
+start the jupyterlab or notebook in the home directory:
     jupyter lab
 
 start the jupyternotebook:
