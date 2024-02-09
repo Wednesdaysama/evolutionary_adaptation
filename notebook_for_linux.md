@@ -26,9 +26,11 @@ or run with nohup &
     source .bashrc # update the PATH
     
 start the anaconda nevigator in the home directory:
+
     anaconda-nevigator
 
 start the jupyterlab or notebook in the home directory:
+
     jupyter lab
 
 start the jupyternotebook:
