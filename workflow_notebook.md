@@ -99,10 +99,10 @@ go to the alignments directory, and make the tree via fasttree or raxml or iqtre
      fasttree ./concatenated_alignment >fasttree_file
 raxml 
 
-     raxmlHPC-PTHREADS -s ./concatenated_alignment -n raxml-tree -m PROTGAMMALG -f a -p 13 -x 123 -# 100 -T 16
+     nohup raxmlHPC-PTHREADS -s ./concatenated_alignment -n raxml-tree -m PROTGAMMALG -f a -p 13 -x 123 -# 100 -T 16 &
 iqtree
 
-     iqtree2 –s ./concatenated_alignment
-
+     nohup iqtree2 –s ./concatenated_alignment &
+upload the fasttree_file, RAxML_bestTree.result and concatenated_alignment.treefile to ITOL to make visualized phylogenetic trees.
 
     
