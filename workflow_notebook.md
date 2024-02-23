@@ -95,6 +95,15 @@ Run metaerg:
 There were 2213 genomes.
 
 #### 2 make species tree 
-via tree_of_mags
+build concatenated_alignment via tree_of_mags
 
      tree_of_mags --mag_fna_dir ../fna --mag_faa_dir ../fna --mag_file_extension .fna
+go to the alignments directory, and make the tree via fasttree or raxml 
+
+     fasttree ./concatenated_alignment >fasttree_file
+raxml 
+
+     raxmlHPC-PTHREADS -s ./concatenated_alignment -n raxml-tree -m PROTGAMMALG -f a -p 13 -x 123 -# 100 -T 16
+
+
+    
