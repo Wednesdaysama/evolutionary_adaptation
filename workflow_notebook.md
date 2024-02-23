@@ -86,10 +86,6 @@ Run metaerg:
 
     nohup metaerg --contig_file /bio/data/Lianchun/nodosilinea/ --database_dir /bio/databases/metaerg --file_extension .fna --output_dir /bio/data/Lianchun/metaerg_nodosilinea_result/ &
 
-
-##### 1.3 CheckM2 and GTDB-Tk results process
-1.3.1 Make a dictionary called new_genomes:
-
 ##### 1.4 followed the four jupyter lab notebooks and collected target genomes
 32 clusters were built: 399 alkaline species, 646 marine species, and  1168 other species were found.
 There were 2213 genomes.
