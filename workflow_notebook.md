@@ -90,36 +90,11 @@ Run metaerg:
 ##### 1.3 CheckM2 and GTDB-Tk results process
 1.3.1 Make a dictionary called new_genomes:
 
-new_genomes = {}
-with open('/home/wednesdaysama/Downloads/Evolutionary_adaptation/checkm2_run1/quality_report.tsv') as handle:
-    for line in handle:
-        try:
-            words = line.split()
-            new_genomes[words[0]] = {'accession': words[0],
-                                 'completeness': float(words[1]),
-                                 'contamination': float(words[2])}
-        except ValueError:
-            print('Skipping', words[0])
-print(len(new_genomes), 'checkm results read.')
+##### 1.4 followed the four jupyter lab notebooks and collected target genomes
+32 clusters were built: 399 alkaline species, 646 marine species, and  1168 other species were found.
+There were 2213 genomes.
 
-1.3.2 Update the new_genomes dictionary to add the 'taxonomy' information for each genome to the dictionary.
+#### 2 make species tree 
+via tree_of_mags
 
-with open('/home/wednesdaysama/Downloads/Evolutionary_adaptation/gtdbtk_run1/gtdbtk.bac120.summary.tsv') as handle:
-    for line in handle:
-        try:
-            words = line.split()
-            genome = new_genomes[words[0]]
-            genome['taxonomy'] = words[1]
-        except KeyError:
-            print('Skipping', words[0])
-
-1.3.3 Check out quality 
-
-count = 0
-for ng in new_genomes.values():
-    if ng['completeness'] > 90 and ng['contamination'] < 5 and ng.get('taxonomy',0):
-        #print(ng['taxonomy'])
-       count += 1
-
-print('high quality genomes', count)
-
+     tree_of_mags --mag_fna_dir ../fna --mag_faa_dir ../fna --mag_file_extension .fna
