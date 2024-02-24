@@ -88,10 +88,10 @@ build concatenated_alignment via tree_of_mags
 go to the alignments directory, and make the tree via fasttree or raxml or iqtree 
 
      fasttree ./concatenated_alignment >fasttree_file
-raxml 
+raxml 23 genomes spend ~50 mins
 
      nohup raxmlHPC-PTHREADS -s ./concatenated_alignment -n raxml-tree -m PROTGAMMALG -f a -p 13 -x 123 -# 100 -T 16 &
-iqtree
+iqtree: 23 genomes spend 53.5 mins
 
      nohup iqtree2 –s ./concatenated_alignment &
 upload the fasttree_file, RAxML_bestTree.result and concatenated_alignment.treefile to ITOL to make visualized phylogenetic trees.
@@ -102,7 +102,7 @@ Activate the virtual environment:
     source /bio/bin/profile
     echo $PATH
     source /bio/bin/python-env/bin/activate
-go to the metaerg directory
+Go to the metaerg directory. Run the following command: (23 genomes spend )
 
     nohup metaerg --database_dir /bio/databases/metaerg --contig_file ../fna --file_extension .fna --output_dir ./  --force all --mode comparative_genomics &
     
