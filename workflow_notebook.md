@@ -76,15 +76,6 @@ should apply more memory and CUP to run gtdbtk, as the pplacer would be killed.
 ##### 0 Run cd-hit to remove duplicate sequence
 
      cd-hit -i Nodosilinea.faa -o Nodosilinea_cd-hit.faa -c 0.95 -n 5 -T 8
-##### 0 Run metaerg
-Activate the virtual environment:
-
-    source /bio/bin/profile
-    echo $PATH
-    source /bio/bin/python-env/bin/activate
-Run metaerg:
-
-    nohup metaerg --contig_file /bio/data/Lianchun/nodosilinea/ --database_dir /bio/databases/metaerg --file_extension .fna --output_dir /bio/data/Lianchun/metaerg_nodosilinea_result/ &
 
 ##### 1.4 followed the four jupyter lab notebooks and collected target genomes
 32 clusters were built: 399 alkaline species, 646 marine species, and  1168 other species were found.
@@ -104,5 +95,16 @@ iqtree
 
      nohup iqtree2 –s ./concatenated_alignment &
 upload the fasttree_file, RAxML_bestTree.result and concatenated_alignment.treefile to ITOL to make visualized phylogenetic trees.
+
+#### 3 annotate genes via Metaerg with --mode usage
+Activate the virtual environment:
+
+    source /bio/bin/profile
+    echo $PATH
+    source /bio/bin/python-env/bin/activate
+go to the metaerg directory
+
+    nohup metaerg --database_dir /bio/databases/metaerg --contig_file ../fna --file_extension .fna --output_dir ./  --force all --mode comparative_genomics &
+    
 
     
