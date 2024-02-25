@@ -94,7 +94,7 @@ raxml 23 genomes spend ~50 mins
 iqtree: 23 genomes spend 53.5 mins
 
      nohup iqtree2 –s ./concatenated_alignment &
-upload the fasttree_file, RAxML_bestTree.result and concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make visualized phylogenetic trees.
+upload the fasttree_file, RAxML_bestTree.result and concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make visualized phylogenetic trees. Or using [R](https://posit.cloud/spaces/485061/content/all?sort=name_asc).
 
 #### 3 annotate genes via Metaerg with --mode usage
 Activate the virtual environment:
