@@ -102,7 +102,7 @@ Activate the virtual environment:
     source /bio/bin/profile
     echo $PATH
     source /bio/bin/python-env/bin/activate
-Go to the metaerg directory. Run the following command: (23 genomes spend )
+Go to the metaerg directory. Run the following command: (23 genomes spend 17.3 hours)
 
     nohup metaerg --database_dir /bio/databases/metaerg --contig_file ../fna --file_extension .fna --output_dir ./  --force all --mode comparative_genomics &
     
