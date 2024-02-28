@@ -89,6 +89,7 @@ iqtree: 23 genomes spend 53.5 mins
 upload the fasttree_file, RAxML_bestTree.result and concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make visualized phylogenetic trees. Or using [R](https://posit.cloud/spaces/485061/content/all?sort=name_asc).
 
 #### 3 annotate genes via Metaerg with --mode usage
+##### 3.1 run metaerg on the cloud
 Activate the virtual environment:
 
     source /bio/bin/profile
@@ -97,6 +98,7 @@ Activate the virtual environment:
 Go to the metaerg directory. Run the following command: (23 genomes spend 17.3 hours)
 
     nohup metaerg --database_dir /bio/databases/metaerg --contig_file ../fna --file_extension .fna --output_dir ./  --force all --mode comparative_genomics &
+##### 3.2 run metaerg on ARC
     
-
+    singularity run /work/ebg_lab/software/metaerg-v2.5.1/metaerg.sif metaerg -h
     
