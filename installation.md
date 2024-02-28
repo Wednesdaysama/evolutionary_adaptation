@@ -1,5 +1,7 @@
-### remember to update the configuration file
+### Remember to update the configuration file 
+If you want to run blastp, the export command line should be included in the .bashrc file. Then, save this file and source it.
 
+    export PATH=$PATH:~/software/ncbi-blast-2.15.0+/bin
     source .bashrc
     
 ### [checkm2](https://github.com/chklovski/CheckM2)
