@@ -1,4 +1,7 @@
+### remember to update the configuration file
 
+    source .bashrc
+    
 ### [checkm2](https://github.com/chklovski/CheckM2)
 
 
