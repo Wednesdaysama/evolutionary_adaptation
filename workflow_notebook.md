@@ -7,7 +7,7 @@
     arc.nodes  # check the available partition nodes
     nano bicar_blastp.slurm   # write the script (refer the 0.2 for details)  
     sbatch bicar_blastp.slurm # Submit the bicar_blastp.slurm to ARC
-    squeue-long -u username # check the user's running queue
+    squeue-long -u lianchun.yi1 # check the user's running queue
     arc.job-info <Job ID> # Job Monitoring
     scancel <Job ID> # cancel the job
 ##### 0.2 Put the content below into the .slurm file:
