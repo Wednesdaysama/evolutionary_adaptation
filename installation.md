@@ -32,3 +32,8 @@ containing the unarchived GTDB-Tk reference data.
     tar xvzf gtdbtk_data.tar.gz   # path: /home/lianchun.yi1/databases/release214
     GTDBTK_DATA_PATH=/home/lianchun.yi1/databases/release214
     gtdbtk check_install # check GTDB-Tk reference data
+
+### [Metaerg](https://github.com/kinestetika/MetaErg/tree/master)
+
+    source ~/bio/bin/python-env/bin/activate
+    
