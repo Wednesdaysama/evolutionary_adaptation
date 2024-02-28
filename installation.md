@@ -39,7 +39,7 @@ containing the unarchived GTDB-Tk reference data.
     gtdbtk check_install # check GTDB-Tk reference data
 
 ### [Metaerg](https://github.com/kinestetika/MetaErg/tree/master)
-Create a metaerg_pull_docker.slurm file.
+Create a metaerg_apptainer.slurm file.
 
     #!/bin/bash
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca
@@ -56,4 +56,9 @@ Create a metaerg_pull_docker.slurm file.
     cd /work/ebg_lab/software/metaerg-v2.5.1
     
     \time apptainer build metaerg.sif docker://kinestetika/metaerg:latest
-    
+
+Download metaerg database
+
+singularity run /work/ebg_lab/software/metaerg-v2.5.1/metaerg.sif metaerg --download_database --database_dir ./
+
+singularity run metaerg.sif metaerg -h
