@@ -1,7 +1,7 @@
 
 ### This is a notebook recording all the steps I have already done. Check here for Dr. Strous' [installation](https://github.com/kinestetika/cloud-computing-for-microbial-ecology/blob/main/cloud_bio_installs.py). For [cheat help](https://github.com/Wednesdaysama/cheat-sheet/blob/main/cheat%20sheet.md).
 
-#### 0 Submit a job to ARC: using blastp as an example.
+### 0 Submit a job to ARC: using blastp as an example.
 ##### 0.1 basic commands
 
     arc.nodes  # check the available partition nodes
@@ -27,7 +27,7 @@
     \time blastp -query ~/databases/Soda_lakes_DB_Flag2_no_separator_V5.fasta -db bicar_db -out ~/data/bicar_blastp_run7 -outfmt 6 -evalue 0.001
 
 
-#### 1. Data Acquisition (except Inner Mongolia soda lake)
+### 1. Data Acquisition (except Inner Mongolia soda lake)
 There are three alkaline soda lakes: Kulunda Steppe, Inner Mongolia and Cariboo plateau.
 References can be found below:
 
@@ -73,7 +73,7 @@ should apply more memory and CUP to run gtdbtk, as the pplacer would be killed.
 32 clusters were built: 399 alkaline species, 646 marine species, and  1168 other species were found.
 There were 2213 genomes.
 
-#### 2 make species tree 
+### 2 make species tree 
 build concatenated_alignment via tree_of_mags
 
      tree_of_mags --mag_fna_dir ../fna --mag_faa_dir ../fna --mag_file_extension .fna
@@ -88,7 +88,7 @@ iqtree: 23 genomes spend 53.5 mins
      nohup iqtree2 –s ./concatenated_alignment &
 upload the fasttree_file, RAxML_bestTree.result and concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make visualized phylogenetic trees. Or using [R](https://posit.cloud/spaces/485061/content/all?sort=name_asc).
 
-#### 3 annotate genes via Metaerg with --mode usage
+### 3 annotate genes via Metaerg with --mode usage
 ##### 3.1 run metaerg on the cloud
 Activate the virtual environment:
 
@@ -103,7 +103,7 @@ This command can generate multiply sequence alignment in the directory of /bio/d
 ##### 3.2 run metaerg on ARC
     
     singularity run /work/ebg_lab/software/metaerg-v2.5.1/metaerg.sif metaerg -h
-#### 4 ultrafast bootstrap tree distributions
+### 4 ultrafast bootstrap tree distributions
 
     nohup sh -c 'for file in /bio/data/Lianchun/evolut_adapt/1/metaerg/comparative_genomics/clusters.faa.align/*.faa; do iqtree2 -s "$file" -m MFP -madd LG+C20,LG+C60 -B 10000 -wbtl ; done' &
 Save all the .ufboot files in the clusters.faa.align directory.
