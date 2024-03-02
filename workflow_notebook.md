@@ -98,7 +98,12 @@ Activate the virtual environment:
 Go to the metaerg directory. Run the following command: (23 genomes spend 17.3 hours)
 
     nohup metaerg --database_dir /bio/databases/metaerg --contig_file ../fna --file_extension .fna --output_dir ./  --force all --mode comparative_genomics &
+
+This command can generate multiply sequence alignment in the directory of /bio/data/Lianchun/evolut_adapt/1/metaerg/comparative_genomics/clusters.faa.align. So the *.faa files in this directory can be used to create ultrafast bootstrap tree distributions.
 ##### 3.2 run metaerg on ARC
     
     singularity run /work/ebg_lab/software/metaerg-v2.5.1/metaerg.sif metaerg -h
-    
+#### 4 ultrafast bootstrap tree distributions
+
+    nohup sh -c 'for file in /bio/data/Lianchun/evolut_adapt/1/metaerg/comparative_genomics/clusters.faa.align/*.faa; do iqtree2 -s "$file" -m MFP -madd LG+C20,LG+C60 -B 10000 -wbtl ; done' &
+Save all the .ufboot files in the clusters.faa.align directory.
