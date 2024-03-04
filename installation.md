@@ -59,6 +59,5 @@ Create a metaerg_apptainer.slurm file.
 
 Download metaerg database
 
-singularity run /work/ebg_lab/software/metaerg-v2.5.1/metaerg.sif metaerg --download_database --database_dir ./
+    singularity run --bind metaerg_database/:/databases /work/ebg_lab/software/metaerg-v2.5.1/metaerg.sif metaerg --database_dir ./metaerg_database --download_database
 
-singularity run metaerg.sif metaerg -h
