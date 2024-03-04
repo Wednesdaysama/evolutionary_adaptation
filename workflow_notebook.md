@@ -106,4 +106,13 @@ This command can generate multiply sequence alignment in the directory of /bio/d
 ### 4 ultrafast bootstrap tree distributions
 
     nohup sh -c 'for file in /bio/data/Lianchun/evolut_adapt/1/metaerg/comparative_genomics/clusters.faa.align/*.faa; do iqtree2 -s "$file" -m MFP -madd LG+C20,LG+C60 -B 10000 -wbtl ; done' &
-Save all the .ufboot files in the clusters.faa.align directory.
+Move all the .ufboot files to the /bio/data/Lianchun/evolut_adapt/1/bootstrap/ directory. 
+### 5 Create ale objects
+go to the bootstrap directory and create several subdirectories. In each subdirectory, run the following command:
+
+    cd /bio/data/Lianchun/evolut_adapt/1/bootstrap/2_group/
+    for file in *.ufboot; do ALEobserve "$file" ; done
+### 6 Computing gene trees for each candidate rooted species tree
+Need to create re-rooted species trees by ITOL first. Then go to each subdirectory and run:
+
+    nohup parallel -j 100000 "ALEml_undated re_root1.newick {} separators='|'" ::: *.ale &
