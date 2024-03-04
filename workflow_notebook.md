@@ -113,6 +113,6 @@ go to the bootstrap directory and create several subdirectories. In each subdire
     cd /bio/data/Lianchun/evolut_adapt/1/bootstrap/2_group/
     for file in *.ufboot; do ALEobserve "$file" ; done
 ### 6 Computing gene trees for each candidate rooted species tree
-Need to create re-rooted species trees by ITOL first. Then go to each subdirectory and run:
+Need to create re-rooted species trees by ITOL first (re_root.newick). Then go to each subdirectory and run:
 
-    nohup parallel -j 100000 "ALEml_undated re_root1.newick {} separators='|'" ::: *.ale &
+    nohup parallel -j 100000 "ALEml_undated re_root.newick {} separators='|'" ::: *.ale &
