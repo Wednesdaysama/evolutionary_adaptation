@@ -112,7 +112,8 @@ go to the bootstrap directory and create several subdirectories. In each subdire
 
     cd /bio/data/Lianchun/evolut_adapt/1/bootstrap/2_group/
     for file in *.ufboot; do ALEobserve "$file" ; done
+Open the *.ale files and check the name of species! There are double names!
 ### 6 Computing gene trees for each candidate rooted species tree
 Need to create re-rooted species trees by ITOL first (re_root.newick). Then go to each subdirectory and run:
 
-    nohup ALEml_undated ../re_root.newick *.ale separators="|"  ::: *.ale &
+    nohup ALEml_undated ../re_root.newick *.ale separators="."  ::: *.ale &
