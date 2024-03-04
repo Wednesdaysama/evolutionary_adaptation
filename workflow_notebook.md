@@ -115,4 +115,4 @@ go to the bootstrap directory and create several subdirectories. In each subdire
 ### 6 Computing gene trees for each candidate rooted species tree
 Need to create re-rooted species trees by ITOL first (re_root.newick). Then go to each subdirectory and run:
 
-    nohup parallel -j 100000 "ALEml_undated re_root.newick {} separators='|'" ::: *.ale &
+    nohup ALEml_undated ../re_root.newick *.ale separators="|"  ::: *.ale &
