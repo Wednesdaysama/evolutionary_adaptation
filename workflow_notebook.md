@@ -117,3 +117,6 @@ Open the *.ale files and check the name of species! There are double names!
 Need to create re-rooted species trees by ITOL first (re_root.newick). Check or change the species name accordingly. Then go to each subdirectory and run:
 
     for file in *.ale; do ALEml_undated ../re_root.newick "$file" separators="."; done
+### Interpretation of ALE results
+branchwise
+    python branchwise_numbers_of_events.py > dtloc.tsv
