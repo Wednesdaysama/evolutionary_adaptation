@@ -110,7 +110,7 @@ Move all the .ufboot files to the /bio/data/Lianchun/evolut_adapt/1/bootstrap/ d
 ### 5 Create ale objects
 go to the bootstrap directory and create several subdirectories. In each subdirectory, run the following command:
 
-    cd /bio/data/Lianchun/evolut_adapt/1/bootstrap/2_group/
+    cd /bio/data/Lianchun/evolut_adapt/1/bootstrap/group
     for file in *.ufboot; do ALEobserve "$file" ; done
 Open the *.ale files and check the name of species! There are double names!
 ### 6 Computing gene trees for each candidate rooted species tree
