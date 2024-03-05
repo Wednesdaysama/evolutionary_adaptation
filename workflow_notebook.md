@@ -117,6 +117,17 @@ Open the *.ale files and check the name of species! There are double names!
 Need to create re-rooted species trees by ITOL first (re_root.newick). Check or change the species name accordingly. Then go to each subdirectory and run:
 
     for file in *.ale; do ALEml_undated ../re_root.newick "$file" separators="."; done
-### Interpretation of ALE results
+### 7 Interpretation of ALE results
+#### 7.1 choose rerooted species tree. 
+
+    rename root1 root *
+    python write_consel_file_p3.py root1 root2 > likelihoods_table
+    mv likelihoods_table likelihoods_table.mt
+    makermt likelihoods_table.mt
+    consel likelihoods_table
+    /bio/bin/consel/bin/catpv likelihoods_table > au_test_out 
+
+Open the au_test_out file and accept the rerooted tree with P > 0.05.
+    
 branchwise
     python branchwise_numbers_of_events.py > dtloc.tsv
