@@ -119,8 +119,11 @@ Need to create re-rooted species trees by ITOL first (re_root.newick). Check or 
     for file in *.ale; do ALEml_undated ../re_root.newick "$file" separators="."; done
 ## 7 Interpretation of ALE results
 ### 7.1 choose rerooted species tree. 
+change file names in the reroot directory.
 
     rename root1 root *
+generate P value file in the bootstrap directory.
+
     python write_consel_file_p3.py root1 root2 > likelihoods_table
     mv likelihoods_table likelihoods_table.mt
     makermt likelihoods_table.mt
@@ -133,5 +136,11 @@ The root1 and root2 are directory names, which containing the .uml_rec files. "O
 Download the above script in the same directory as write_consel_file_p3.py (directory A). Create 3 subdirectories in directory A named: root1, root2 and root3. The number of subdirectories is the same as the number of candidate roots. Copy reroot's species tree and its corresponding *uml_rec files to their respective subdirectories. In the directory A, manually create text files named [roots_to_test.txt](https://github.com/ak-andromeda/ALE_methods/blob/main/Demo_data/roots_to_test.txt) and [species_list_demo.txt](https://github.com/ak-andromeda/ALE_methods/blob/main/Demo_data/species_list_demo.txt). In the first file, write the name of the directory of the root to be tested. In this example, write root1, root2. In the second file, write the species names. Note: In these 2 txt files, each directory name or species name must be on a separate line. In the directory A, run the following code:
 
     python DTL_ratio_analysis_ML_diff.py root1 LS
-branchwise
+### 7.3 Gene content evolution on the most likely rooted species tree
+Go to the reroot directory and run the command below:
+
     python branchwise_numbers_of_events.py > dtloc.tsv
+Open the output file which is named as .tsv. Check the internal node orders. Remember the first and last internal node orders. If the number of internal nodes (branch nodes) are from 16-30, 16 and 30 should be the first and last internal node orders. In the same directory, run Ancestral_reconstruction_copy_number.py.
+
+    python Ancestral_reconstruction_copy_number.py 0.5 16 30
+In this case, 0.5 is that 50% of the family's copies exist on the corresponding node. 16 and 30 refer to the number of the first and last internal node.
