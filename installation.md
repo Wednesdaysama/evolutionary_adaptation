@@ -58,6 +58,8 @@ Create a metaerg_apptainer.slurm file.
     \time apptainer build metaerg.sif docker://kinestetika/metaerg:latest
 
 Download metaerg database
+Go to the head node, and download the database.
 
-    singularity run /work/ebg_lab/software/metaerg-v2.5.1/metaerg.sif metaerg --database_dir ./metaerg_database --download_database
+    wget https://object-arbutus.cloud.computecanada.ca/metaerg/metaerg_2_3.40_gtdb_214.tar,gz
+
 
