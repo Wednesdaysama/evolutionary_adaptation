@@ -61,5 +61,5 @@ Download metaerg database
 Go to the head node, and download the database.
 
     wget https://object-arbutus.cloud.computecanada.ca/metaerg/metaerg_2_3.40_gtdb_214.tar,gz
-
+    tar -zxf metaerg_2_3.40_gtdb_214.tar,gz
 
