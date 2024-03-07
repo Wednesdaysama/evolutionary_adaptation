@@ -73,7 +73,7 @@ should apply more memory and CUP to run gtdbtk, as the pplacer would be killed.
 32 clusters were built: 399 alkaline species, 646 marine species, and  1168 other species were found.
 There were 2213 genomes.
 
-## 2 make species tree 
+## 2 make species tree (this step could be moved after running metaerg. Then, using the faa results)
 build concatenated_alignment via tree_of_mags
 
      tree_of_mags --mag_fna_dir ../fna --mag_faa_dir ../fna --mag_file_extension .fna
