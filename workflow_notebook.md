@@ -102,8 +102,19 @@ Go to the metaerg directory. Run the following command: (23 genomes spend 17.3 h
 This command can generate multiply sequence alignment in the directory of /bio/data/Lianchun/evolut_adapt/1/metaerg/comparative_genomics/clusters.faa.align. So the *.faa files in this directory can be used to create ultrafast bootstrap tree distributions.
 #### 3.2 run metaerg on ARC
 
-    source ~bio/bin/python-env/bin/activate
-    singularity run /work/ebg_lab/software/metaerg-v2.5.1/metaerg.sif metaerg -h
+    #!/bin/bash
+    #SBATCH --job-name=bicar      # Job name
+    #SBATCH --nodes=1             # Run all processes on a single node
+    #SBATCH --ntasks=1            # Run 4 tasks
+    #SBATCH --cpus-per-task=1    # Number of CPU cores per task
+    #SBATCH --mem=100G            # Job memory request
+    #SBATCH --time=10:00:00       # Time limit hrs:min:sec
+    #SBATCH --output=blast%j.log  # Standard output and error log
+    #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
+    #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
+    pwd; hostname; date
+    
+    \time  singularity run --bind /work/ebg_lab/referenceDatabases/metaerg_db_V214:/databases --bind /home/lianchun.yi1/test_data_fna:/data --writable-tmpfs /work/ebg_lab/software/metaerg-v2.5.2/metaerg.sif metaerg --database_dir /databases --contig_file /data --mode comparative_genomics
 ## 4 ultrafast bootstrap tree distributions
 
     nohup sh -c 'for file in /bio/data/Lianchun/evolut_adapt/1/metaerg/comparative_genomics/clusters.faa.align/*.faa; do iqtree2 -s "$file" -m MFP -madd LG+C20,LG+C60 -B 10000 -wbtl ; done' &
