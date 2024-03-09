@@ -112,6 +112,7 @@ This command can generate multiply sequence alignment in the directory of /bio/d
     #SBATCH --output=blast%j.log  # Standard output and error log
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
+    #SBATCH --partition=cpu2021
     pwd; hostname; date
     
     \time  singularity run --bind /work/ebg_lab/referenceDatabases/metaerg_db_V214:/databases --bind /home/lianchun.yi1/test_data_fna:/data --writable-tmpfs /work/ebg_lab/software/metaerg-v2.5.2/metaerg.sif metaerg --database_dir /databases --contig_file /data --mode comparative_genomics
