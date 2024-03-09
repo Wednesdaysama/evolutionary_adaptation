@@ -103,19 +103,19 @@ This command can generate multiply sequence alignment in the directory of /bio/d
 #### 3.2 run metaerg on ARC
 
     #!/bin/bash
-    #SBATCH --job-name=bicar      # Job name
-    #SBATCH --nodes=1             # Run all processes on a single node
-    #SBATCH --ntasks=1            # Run 4 tasks
-    #SBATCH --cpus-per-task=1    # Number of CPU cores per task
-    #SBATCH --mem=100G            # Job memory request
-    #SBATCH --time=10:00:00       # Time limit hrs:min:sec
-    #SBATCH --output=blast%j.log  # Standard output and error log
-    #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
-    #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
-    #SBATCH --partition=cpu2021
-    pwd; hostname; date
-    
-    \time  singularity run --bind /work/ebg_lab/referenceDatabases/metaerg_db_V214:/databases --bind /home/lianchun.yi1/test_data_fna:/data --writable-tmpfs /work/ebg_lab/software/metaerg-v2.5.2/metaerg.sif metaerg --database_dir /databases --contig_file /data --mode comparative_genomics
+#SBATCH --job-name=metaerg_test      # Job name
+#SBATCH --nodes=1             # Run all processes on a single node
+#SBATCH --ntasks=1            # Run 4 tasks
+#SBATCH --cpus-per-task=1    # Number of CPU cores per task
+#SBATCH --mem=50G            # Job memory request
+#SBATCH --time=04:00:00       # 23 genomes spend 17.3 hours
+#SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
+#SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
+#SBATCH --partition=cpu2021
+pwd; hostname; date
+
+\time  singularity run --bind /work/ebg_lab/referenceDatabases/metaerg_db_V214:/databases --bind /home/lianchun.yi1/test_data_fna:/data --writable-tmpfs /work/ebg_lab/software/metaerg-v2.5.2/metaerg.sif metaerg --database_dir /databases --contig_file /data --mode comparative_genomics --file_extension .fna
+
 ## 4 ultrafast bootstrap tree distributions
 
     nohup sh -c 'for file in /bio/data/Lianchun/evolut_adapt/1/metaerg/comparative_genomics/clusters.faa.align/*.faa; do iqtree2 -s "$file" -m MFP -madd LG+C20,LG+C60 -B 10000 -wbtl ; done' &
