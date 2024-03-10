@@ -101,7 +101,7 @@ Go to the metaerg directory. Run the following command: (23 genomes spend 17.3 h
 
 This command can generate multiply sequence alignment in the directory of /bio/data/Lianchun/evolut_adapt/1/metaerg/comparative_genomics/clusters.faa.align. So the *.faa files in this directory can be used to create ultrafast bootstrap tree distributions.
 #### 3.2 run metaerg on ARC
-1 genome spends 1 h and 40 min
+50 G memory：1 genome spends 1 h and 40 min
 
     #!/bin/bash
     #SBATCH --job-name=metaerg_test      # Job name
