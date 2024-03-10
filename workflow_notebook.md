@@ -155,7 +155,7 @@ Download the above script in the same directory as write_consel_file_p3.py (dire
 
     python DTL_ratio_analysis_ML_diff_Fan.py reroot1 D
     python DTL_ratio_analysis_ML_diff_Fan.py reroot1 T
-    python DTL_ratio_analysis_ML_diff_Fan.py reroot1 S
+    python DTL_ratio_analysis_ML_diff_Fan.py reroot1 L
     python DTL_ratio_analysis_ML_diff_Fan.py reroot1 LS
     python DTL_ratio_analysis_ML_diff_Fan.py reroot1 TS
     python DTL_ratio_analysis_ML_diff_Fan.py reroot1 DS
