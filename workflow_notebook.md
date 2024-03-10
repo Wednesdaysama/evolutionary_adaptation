@@ -130,7 +130,7 @@ Open the *.ale files and check the name of species! There are double names!
 ## 6 Computing gene trees for each candidate rooted species tree
 Need to create re-rooted species trees by ITOL first (re_root.newick). Check or change the species name accordingly. Then go to each subdirectory and run:
 
-    for file in *.ale; do ALEml_undated ../re_root.newick "$file" separators="."; done
+    for file in *.ale; do ALEml_undated ../reroot1.newick "$file" separators="."; done
 ## 7 Interpretation of ALE results
 ### 7.1 choose rerooted species tree. 
 change file names in the reroot directory.
