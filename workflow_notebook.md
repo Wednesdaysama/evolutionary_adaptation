@@ -86,7 +86,7 @@ raxml 23 genomes spend ~50 mins
 iqtree: 23 genomes spend 53.5 mins (can not use nohup)
 
      iqtree2 –s ./concatenated_alignment
-upload the fasttree_file, RAxML_bestTree.result and concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make visualized phylogenetic trees. Or using [R](https://posit.cloud/spaces/485061/content/all?sort=name_asc).
+upload the fasttree_file, and concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make visualized phylogenetic trees. Or using [R](https://posit.cloud/spaces/485061/content/all?sort=name_asc).
 
 ## 3 annotate genes via Metaerg with --mode usage
 #### 3.1 run metaerg on the cloud
@@ -128,7 +128,11 @@ go to the bootstrap directory and create several subdirectories. In each subdire
     for file in *.ufboot; do ALEobserve "$file" ; done
 Open the *.ale files and check the name of species! There are double names!
 ## 6 Computing gene trees for each candidate rooted species tree
-Need to create re-rooted species trees by ITOL first (re_root.newick). Check or change the species name accordingly. Then go to each subdirectory and run:
+Need to create re-rooted species trees by ITOL first. Check or change the species name accordingly (reroot1.txt). 
+
+    python LY_species_tree_name_modify.py
+
+The LY_species_tree_name_modify.py scirpt will modify the old species name and generate *.newick files, roots_to_test.txt, and species_list_demo.txt files. Then go to each subdirectory and run:
 
     for file in *.ale; do ALEml_undated ../reroot1.newick "$file" separators="."; done
 ## 7 Interpretation of ALE results
