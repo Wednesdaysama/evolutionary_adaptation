@@ -142,7 +142,7 @@ change file names in the reroot directory.
     rename root1 root *
 generate P value file in the bootstrap directory.
 
-    python write_consel_file_p3.py root1 root2 > likelihoods_table
+    python write_consel_file_p3.py reroot1 reroot2 > likelihoods_table
     mv likelihoods_table likelihoods_table.mt
     makermt likelihoods_table.mt
     consel likelihoods_table
