@@ -39,27 +39,13 @@ containing the unarchived GTDB-Tk reference data.
     gtdbtk check_install # check GTDB-Tk reference data
 
 ### [Metaerg](https://github.com/kinestetika/MetaErg/tree/master)
-Create a metaerg_apptainer.slurm file.
+Make an empty directory called sandbox. Use singularity build to make a sandbox and run metaerg in the sandbox.
 
-    #!/bin/bash
-    #SBATCH --mail-user=lianchun.yi1@ucalgary.ca
-    #SBATCH --mail-type=ALL
-    #SBATCH --nodes=1
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=2
-    #SBATCH --mem=50GB
-    #SBATCH --time=24:00:00
-    #SBATCH --partition=cpu2021
-    pwd; hostname; date
+    singularity build --sandbox /work/ebg_lab/referenceDatabases/metaerg_db_V214/sandbox/ docker://kinestetika/metaerg:latest
 
-    source /home/lianchun.yi1/bio/bin/python-env/bin/activate
-    cd /work/ebg_lab/software/metaerg-v2.5.1
+Download or move the metaerg databases. For me, I save all the helper databases under /work/ebg_lab/referenceDatabases/metaerg_db_V214 directory. Then, using the following command to execute a test running.
+
+    singularity exec --bind /work/ebg_lab/referenceDatabases/metaerg_db_V214:/databases --bind /home/lianchun.yi1/test_data_fna:/data --writable /work/ebg_lab/software/metaerg-v2.5.2/sandbox/ metaerg --database_dir /databases --contig_file /data --file_extension .fna --force all
+
     
-    \time apptainer build metaerg.sif docker://kinestetika/metaerg:latest
-
-Download metaerg database
-Go to the head node, and download the database.
-
-    wget https://object-arbutus.cloud.computecanada.ca/metaerg/metaerg_2_3.40_gtdb_214.tar,gz
-    tar -zxf metaerg_2_3.40_gtdb_214.tar,gz
 
