@@ -41,7 +41,7 @@ containing the unarchived GTDB-Tk reference data.
 ### [Metaerg](https://github.com/kinestetika/MetaErg/tree/master)
 Make an empty directory called sandbox. Use singularity build to make a sandbox and run metaerg in the sandbox.
 
-    singularity build --sandbox /work/ebg_lab/referenceDatabases/metaerg_db_V214/sandbox/ docker://kinestetika/metaerg:latest
+    singularity build --sandbox /work/ebg_lab/software/metaerg-v2.5.2/sandbox/ docker://kinestetika/metaerg:latest
 
 Download or move the metaerg databases. For me, I save all the helper databases under /work/ebg_lab/referenceDatabases/metaerg_db_V214 directory. Then, using the following command to execute a test running.
 
