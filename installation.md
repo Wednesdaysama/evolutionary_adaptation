@@ -45,7 +45,10 @@ Make an empty directory called sandbox. Use singularity build to make a sandbox 
 
 Download or move the metaerg databases. For me, I save all the helper databases under /work/ebg_lab/referenceDatabases/metaerg_db_V214 directory. Then, using the following command to execute a test running.
 
-    singularity exec --bind /work/ebg_lab/referenceDatabases/metaerg_db_V214:/databases --bind /home/lianchun.yi1/test_data_fna:/data --writable /work/ebg_lab/software/metaerg-v2.5.2/sandbox1/ metaerg --database_dir /databases --contig_file /data --file_extension .fna --force all
+    singularity exec --bind /work/ebg_lab/referenceDatabases/metaerg_db_V214:/databases --bind /home/lianchun.yi1/test_data_fna:/data --writable /work/ebg_lab/software/metaerg-v2.5.2/sandbox_metaerg_2.5.4/ metaerg --database_dir /databases --contig_file /data --file_extension .fna --force all
 
-    
+Delete the sandbox
+
+    chmod -R u+rwX <sandbox_name>
+    rm <sandbox_name>
 
