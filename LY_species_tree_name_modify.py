@@ -3,10 +3,9 @@ import re
 
 directory = os.getcwd()
 
-species_name = []
-
 for filename in os.listdir(directory):
     if filename.startswith("reroot") and filename.endswith(".txt"):
+        species_name = []
         filepath = os.path.join(directory, filename)
         with open(filepath, 'r') as file:
             content = file.read()
