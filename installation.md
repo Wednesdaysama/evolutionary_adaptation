@@ -52,3 +52,6 @@ Delete the sandbox
     chmod -R u+rwX <sandbox_name>
     rm <sandbox_name>
 
+Update metaerg on the Cloud:
+
+    pip install metaerg --upgrade
