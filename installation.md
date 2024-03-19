@@ -56,7 +56,7 @@ Update metaerg on the Cloud:
 
     pip install metaerg --upgrade
 
-### (Qiime2)[https://educe-ubc.github.io/qiime2.html#:~:text=Installing%20QIIME%202%201%20Create%20a%20new%20Conda,Test%20that%20QIIME%202%20is%20installed%3A%20qiime%20info] 
+### [Qiime2](https://educe-ubc.github.io/qiime2.html#:~:text=Installing%20QIIME%202%201%20Create%20a%20new%20Conda,Test%20that%20QIIME%202%20is%20installed%3A%20qiime%20info)
 
     source /home/lianchun.yi1/software/gtdb-tk/bin/activate
     curl -sL   "https://data.qiime2.org/distro/core/qiime2-2020.8-py36-linux-conda.yml" >   "qiime2.yml"
