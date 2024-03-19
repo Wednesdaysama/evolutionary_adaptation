@@ -55,3 +55,16 @@ Delete the sandbox
 Update metaerg on the Cloud:
 
     pip install metaerg --upgrade
+
+### qiime2 
+
+    source /home/lianchun.yi1/software/gtdb-tk/bin/activate
+    curl -sL   "https://data.qiime2.org/distro/core/qiime2-2020.8-py36-linux-conda.yml" >   "qiime2.yml"
+    conda env create -n qiime2 --file qiime2.yml
+    rm qiime2.yml
+    conda activate qiime2
+    qiime info # check the installation
+
+    
+    
+    
