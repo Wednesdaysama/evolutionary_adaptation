@@ -23,6 +23,8 @@ The database will be installed in /home/lianchun.yi1/databases/checkm2.
 
 ### [gtdb-tk](https://ecogenomics.github.io/GTDBTk/installing/bioconda.html#step-1-install-conda-if-not-already-done)
 
+/home/lianchun.yi1/software/gtdb-tk/bin/activate is a python virtual environment.
+
     cd software
     python -m venv gtdb-tk   # create a gtdb-tk virtual environment
     source gtdb-tk/bin/activate # activate the virtual environment
