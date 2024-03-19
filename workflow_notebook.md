@@ -40,13 +40,7 @@ References can be found below:
 * [Inner Mongolia paper](https://www.frontiersin.org/articles/10.3389/fmicb.2020.01740/full#footnote11) and [data](https://figshare.com/s/9c3cb76f0c9646a30e94).
 * [Cariboo paper](https://www.nature.com/articles/s41467-019-12195-5) and [data](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA377096).
 
-#### 1.1 download data from Kulunda and Cariboo paper
-
-
-#### 1.0 Launch an interactive session on ARC:
-
-    salloc --mem=10G -c 1 -N 1 -n 1  -t 02:00:00
-
+Download data from Kulunda and Cariboo paper
 
 #### 1.1 Run checkm2 
 
