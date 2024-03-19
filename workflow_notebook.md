@@ -3,7 +3,7 @@
 
 #### 1.0 Launch an interactive session on ARC:
 
-    salloc --mem=50G -c 1 -N 1 -n 1  -t 04:00:00
+    salloc --mem=20G -c 4 -N 1 -n 1  -t 04:00:00
 
 ## 0 Submit a job to ARC: using blastp as an example.
 #### 0.1 basic commands
