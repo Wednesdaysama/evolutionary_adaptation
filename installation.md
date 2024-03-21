@@ -70,7 +70,7 @@ run Qiime2
     conda activate qiime2
     qiime info # check the installation
 
-### [puppy](https://github.com/Tropini-lab/PUPpy?tab=readme-ov-file#install-with-conda-x86-64--linux-64)
+### [PUPpy](https://github.com/Tropini-lab/PUPpy?tab=readme-ov-file#install-with-conda-x86-64--linux-64)
 Installation: make sure update the conda to the latest version.
 
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ./miniconda3/miniconda.sh
