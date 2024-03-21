@@ -70,6 +70,28 @@ run Qiime2
     conda activate qiime2
     qiime info # check the installation
 
+###[puppy](https://github.com/Tropini-lab/PUPpy?tab=readme-ov-file#install-with-conda-x86-64--linux-64)
+Installation: make sure update the conda to the latest version.
+
+    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ./miniconda3/miniconda.sh
+    bash ./miniconda3/miniconda.sh -b -u -p ./miniconda3
+    conda config --add channels defaults
+    conda config --add channels conda-forge
+    conda config --add channels bioconda
+    /home/lianchun.yi1/software/miniconda3/bin/conda create -n puppy -c hghezzi -y puppy
+    nano ~/.bashrc
+
+add the following content to the .bashrc file:
+    export PATH=$PATH:/home/lianchun.yi1/software/miniconda3/bin
+    source .bashrc
+Running puppy:
+
+    conda activate puppy
+    puppy-align -h
+    
+    
+    
+
     
     
     
