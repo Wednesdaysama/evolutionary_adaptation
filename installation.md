@@ -88,7 +88,7 @@ add **export PATH=$PATH:/home/lianchun.yi1/software/miniconda3/bin** to the .bas
 Running puppy:
 
     conda activate puppy
-    puppy-align -h
+    puppy-align -pr /home/lianchun.yi1/data/puppy/sodalinema -nt /home/lianchun.yi1/data/puppy/geitlerinemaceae_rest -o ./
     
     
     
