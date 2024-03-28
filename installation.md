@@ -90,7 +90,14 @@ Running puppy:
     conda deactivate
     conda activate puppy
     puppy-align -pr /home/lianchun.yi1/data/puppy/sodalinema -nt /home/lianchun.yi1/data/puppy/geitlerinemaceae_rest -o /home/lianchun.yi1/data/puppy/output
-    
+
+### [ncbi-genome-download](https://github.com/kblin/ncbi-genome-download)
+Install:
+
+    pip install ncbi-genome-download
+Prepare a list containing the accession numbers of NCBI via **nano download_list**. In this list, every line only contains one accession number. Then run:
+
+    ncbi-genome-download --section genbank --formats cds-fasta--assembly-accessions download_list --flat-output bacteria
     
     
 
