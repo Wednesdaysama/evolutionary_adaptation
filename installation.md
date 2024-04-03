@@ -100,6 +100,7 @@ Prepare a list containing the accession numbers of NCBI via **nano download_list
 
     ncbi-genome-download --section genbank --formats cds-fasta --assembly-accessions download_list bacteria --flat-output # download GCA
     ncbi-genome-download --formats cds-fasta --assembly-accessions download_list bacteria --flat-output                   # download GCF
+    gunzip *.fna.gz
 
 
     
