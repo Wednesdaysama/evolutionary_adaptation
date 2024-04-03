@@ -85,12 +85,12 @@ add **export PATH=$PATH:/home/lianchun.yi1/software/miniconda3/bin** to the .bas
 
     source .bashrc
     
-Running puppy:
+Running puppy to design primers for a group:
 
     conda deactivate
     conda activate puppy
     puppy-align -pr /home/lianchun.yi1/data/puppy/sodalinema -nt /home/lianchun.yi1/data/puppy/geitlerinemaceae_rest -o /home/lianchun.yi1/data/puppy/output
-    puppy-primers -pr target_genomes/ -i ./output/ResultDB.tsv -o primer/
+    puppy-primers -pr target_genomes/ -i ./output/ResultDB.tsv -o primer/ -p group
 
 ### [ncbi-genome-download](https://github.com/kblin/ncbi-genome-download)
 Install:
