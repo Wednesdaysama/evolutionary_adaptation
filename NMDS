@@ -1,0 +1,38 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from matplotlib.patches import Patch
+from matplotlib.patches import Ellipse
+
+df = pd.read_excel(r'D:\OneDrive - University of Calgary\pH experiment\Manuscript\Data\NMDS.xlsx', sheet_name='all', usecols=[0,1,2,3,4])
+fig, ax = plt.subplots(figsize=(4, 8), dpi = 300)
+ax.set_facecolor('#EAEAF2')
+
+for spine in ax.spines.values():
+    spine.set_edgecolor(ax.get_facecolor())
+sns.scatterplot(x='axis1', y='axis2', data=df, s=55, hue='pH',
+                style='group2', markers=['o', 's', 'D', '^'],
+    palette=sns.cubehelix_palette(as_cmap=True), ax=ax, legend=False)
+
+legend_elements = [plt.Line2D([0], [0], marker='o', color='w', label='FS-pH 10.5', markerfacecolor='black', markersize=7),
+                   plt.Line2D([0], [0], marker='s', color='w',  label='pH 10.2', markerfacecolor='black', markersize=7),
+                   plt.Line2D([0], [0], marker='D', color='w', label='pH 10.7', markerfacecolor='black', markersize=7),
+                   plt.Line2D([0], [0], marker='^', color='w', label='pH 11.2', markerfacecolor='black', markersize=7)]
+plt.legend(handles=legend_elements, bbox_to_anchor=(0.69, 0.23), fontsize=7)
+
+plt.xlabel("NMDS1", fontsize=8)
+plt.ylabel("NMDS2", fontsize=8)
+plt.xticks(fontsize=8)
+plt.yticks(fontsize=8)
+plt.text(0.05, 0.05, "Stress = 0.24", transform=ax.transAxes, fontsize=8)
+# make colorbar
+sc = ax.scatter([], [], c=[], vmin=10.283, vmax=11.4, cmap=sns.cubehelix_palette(as_cmap=True))
+cbar_ax = fig.add_axes([0.92, 0.15, 0.03, 0.7])
+cbar = plt.colorbar(sc, cax=cbar_ax)
+cbar.set_label('pH', fontsize=8)
+cbar.ax.tick_params(labelsize=8)
+
+
+plt.savefig(r'D:\OneDrive - University of Calgary\pH experiment\Manuscript\Data\figures_by_groups\NMDS_pycharm.png', bbox_inches='tight')
+plt.close()
