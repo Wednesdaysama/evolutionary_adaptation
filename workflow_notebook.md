@@ -135,7 +135,7 @@ This command can generate multiply sequence alignment in the directory of /bio/d
 Compress and decompress
 
     tar -zcvf archive.tar.gz ./
-    tar -zcvf archive.tar.gz 
+    tar -xzf archive.tar.gz 
 
 ## 4 ultrafast bootstrap tree distributions
 
