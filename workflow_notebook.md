@@ -86,6 +86,23 @@ iqtree: 23 genomes spend 53.5 mins (can not use nohup)
      iqtree2 -s concatenated_alignment -nt 16
 upload the fasttree_file, and concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make visualized phylogenetic trees. Or using [R](https://posit.cloud/spaces/485061/content/all?sort=name_asc).
 
+run iqtree on ARC:
+
+    #!/bin/bash
+    #SBATCH --job-name=iqtree2      # Job name
+    #SBATCH --nodes=1             # Run all processes on a single node
+    #SBATCH --ntasks=1            # Run 4 tasks
+    #SBATCH --cpus-per-task=1    # Number of CPU cores per task
+    #SBATCH --mem=20G            # Job memory request
+    #SBATCH --time=4:00:00       # Time limit hrs:min:sec
+    #SBATCH --output=iqtree%j.log  # Standard output and error log
+    #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
+    #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
+    pwd; hostname; date
+    
+    conda activate iqtree2_env
+    iqtree2 -s concatenated_alignment -nt 16
+
 ## 3 annotate genes via Metaerg with --mode usage
 #### 3.1 run metaerg on the cloud
 Activate the virtual environment:
