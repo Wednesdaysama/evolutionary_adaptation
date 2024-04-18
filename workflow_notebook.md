@@ -132,6 +132,11 @@ This command can generate multiply sequence alignment in the directory of /bio/d
 
     \time  singularity exec --bind /work/ebg_lab/referenceDatabases/metaerg_db_V214:/databases --bind /home/lianchun.yi1/test_data_fna:/data --writable /work/ebg_lab/software/metaerg-v2.5.2/sandbox_metaerg_2.5.4/ metaerg --database_dir /databases --contig_file /data --file_extension .fna --mode comparative_genomics 
 
+Compress and decompress
+
+    tar -zcvf archive.tar.gz ./
+    tar -zcvf archive.tar.gz 
+
 ## 4 ultrafast bootstrap tree distributions
 
     nohup sh -c 'for file in /bio/data/Lianchun/evolut_adapt/1/metaerg/comparative_genomics/clusters.faa.align/*.faa; do iqtree2 -s "$file" -m MFP -madd LG+C20,LG+C60 -B 10000 -wbtl ; done' &
