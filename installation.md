@@ -98,8 +98,8 @@ Install:
     pip install ncbi-genome-download
 Prepare a list containing the accession numbers of NCBI via **nano download_list**. In this list, every line only contains one accession number. Then run:
 
-    ncbi-genome-download --section genbank --formats cds-fasta --assembly-accessions download_list bacteria --flat-output # download GCA
-    ncbi-genome-download --formats cds-fasta --assembly-accessions download_list bacteria --flat-output                   # download GCF
+    ncbi-genome-download --section genbank --formats fasta --assembly-accessions GCA_list bacteria --flat-output # download GCA
+    ncbi-genome-download --formats fasta --assembly-accessions GCF_list bacteria --flat-output                   # download GCF
     gunzip *.fna.gz
 
 
