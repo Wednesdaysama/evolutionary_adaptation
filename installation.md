@@ -104,17 +104,17 @@ Prepare a list containing the accession numbers of NCBI via **nano download_list
 
 ### [iqtree2](https://github.com/iqtree/iqtree2/releases)
 Install:
-download the latest release: iqtree-2.3.4-Linux-arm.tar.gz
+download the latest release: iqtree-2.3.4-Linux-intel.tar.gz
 
-    tar -zxvf iqtree-2.3.4-Linux-arm.tar.gz
-    mv iqtree-2.3.4-Linux-arm/bin/iqtree2 ./
-    rm -r iqtree-2.3.4-Linux-arm
-    rm iqtree-2.3.4-Linux-arm.tar.gz
+    tar -zxvf iqtree-2.3.4-Linux-intel.tar.gz
+    mv iqtree-2.3.4-Linux-intel/bin/iqtree2 ./
+    rm -r iqtree-2.3.4-Linux-intel
+    rm iqtree-2.3.4-Linux-intel.tar.gz
 
-Run:
-Activate the python environment (Python 3.7.4)
-
-    source ~/bio/bin/python-env/bin/activate
+    nano ~/.bashrc   #open the configuration file
+    export PATH=$PATH:/home/lianchun.yi1/software/iqtree2 #add this to this file and save it
+    source ~/.bashrc
+    
     
 
     
