@@ -105,6 +105,7 @@ Prepare a list containing the accession numbers of NCBI via **nano download_list
 ### [iqtree2](https://github.com/iqtree/iqtree2/releases)
 Install:
 download the latest release: iqtree-2.3.4-Linux-arm.tar.gz
+
     tar -zxvf iqtree-2.3.4-Linux-arm.tar.gz
     mv iqtree-2.3.4-Linux-arm/bin/iqtree2 ./
     rm -r iqtree-2.3.4-Linux-arm
