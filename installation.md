@@ -102,6 +102,11 @@ Prepare a list containing the accession numbers of NCBI via **nano download_list
     ncbi-genome-download --formats fasta --assembly-accessions GCF_list bacteria --flat-output                   # download GCF
     gunzip *.fna.gz
 
+### [iqtree2](https://github.com/iqtree/iqtree2/releases)
+Install:
+download the latest release
+
+
 
     
     
