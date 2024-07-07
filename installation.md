@@ -115,6 +115,14 @@ download the latest release in /home/lianchun.yi1/software/iqtree2: iqtree-2.3.4
     export PATH=$PATH:/home/lianchun.yi1/software/iqtree2 #add this to this file and save it
     source ~/.bashrc
     
+### [sMap](https://github.com/arklumpus/sMap/tree/master)
+sMap was installed on Windows. Please follow the author's GitHub for detailed instructions.
+
+Run:
+
+Press *Win+R*, type *cmd*, and then type *sMap -h*.
+    
+    
     
 
     
