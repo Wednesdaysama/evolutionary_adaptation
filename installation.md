@@ -117,10 +117,7 @@ download the latest release in /home/lianchun.yi1/software/iqtree2: iqtree-2.3.4
     
 ### [sMap](https://github.com/arklumpus/sMap/tree/master)
 sMap was installed on Windows. Please follow the author's GitHub for instructions. Then, add the installation path to the PATH environment variable. 
-1. Open the System Properties:
-Press **Win + X** and select **System**. Click on **Advanced system settings** on the left sidebar.
-In the System Properties window, click on the **Environment Variables** button. **Edit** the PATH Variable. In the Environment Variables window, scroll down to find the Path variable in the System variables section.
-Select **Path** and click on **Edit**. Add the sMap path, which is **D:\sMap**. Click **OK** to close each window.
+Open the System Properties: Press **Win + X** and select **System**. Click on **Advanced system settings** on the left sidebar.In the System Properties window, click on the **Environment Variables** button. **Edit** the PATH Variable. In the Environment Variables window, scroll down to find the Path variable in the System variables section. Select **Path** and click on **Edit**. Add the sMap path, which is **D:\sMap**. Click **OK** to close each window.
 
 Run:
 
