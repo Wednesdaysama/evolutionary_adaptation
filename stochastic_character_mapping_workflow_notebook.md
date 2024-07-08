@@ -201,7 +201,6 @@ the self-incompatibility character to compute the marginal likelihoods for all c
     mkdir Plants_dep_ML_ARD
     sMap -t Pontederiaceae.tre -d Pontederiaceae.txt -o Plants_dep_ML_ARD/tutorial8 -n 1000 -i Pontederiaceae_dep.model.ML.ARD.nex --pm 5 --mr 5
 Take note of the ML estimates for the rates.
-These priors are specified in the Pontederiaceae_dep.model.Bayes.ARD.nex file.
 
     mkdir Plants_dep_Bayes_ARD
     sMap -t Pontederiaceae.treedist -T Pontederiaceae.tre -d Pontederiaceae.txt -o Plants_dep_Bayes_ARD/tutorial8 -n 1000 -i Pontederiaceae_dep.model.Bayes.ARD.nex -ss --max-samples=10000 --ss-estimate-steps
