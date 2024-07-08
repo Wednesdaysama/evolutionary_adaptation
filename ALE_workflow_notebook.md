@@ -83,7 +83,7 @@ raxml 23 genomes spend ~50 mins
      nohup raxmlHPC-PTHREADS -s ./concatenated_alignment -n raxml-tree -m PROTGAMMALG -f a -p 13 -x 123 -# 100 -T 16 &
 iqtree: 23 genomes spend 53.5 mins (can not use nohup)
 
-     iqtree2 -s concatenated_alignment -nt 16 -bb 1000 -alrt 1000
+     iqtree2 -s concatenated_alignment -nt 16 -bb 1000 -wbtl
 upload the fasttree_file, and concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make visualized phylogenetic trees. Or using [R](https://posit.cloud/spaces/485061/content/all?sort=name_asc).
 
 run iqtree on ARC:
@@ -101,7 +101,7 @@ run iqtree on ARC:
     pwd; hostname; date
     
     conda activate iqtree2_env
-    iqtree2 -s concatenated_alignment -nt 16
+    iqtree2 -s concatenated_alignment -nt 16 -bb 1000 -wbtl
 
 ## 3 annotate genes via Metaerg with --mode usage
 #### 3.1 run metaerg on the cloud
