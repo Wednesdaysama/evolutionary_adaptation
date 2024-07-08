@@ -211,7 +211,7 @@ Take note of the ln-marginal likelihood, which should be around -24.75.
     sMap -t Pontederiaceae.tre -d Pontederiaceae.txt -o Plants_dep_ML_ER/tutorial8 -n 1000 -i Pontederiaceae_dep.model.ML.ER.nex
 Take note of the ML estimate for the rates, which should be around 0.252.
 
-    $mkdir Plants_dep_Bayes_ER
+    mkdir Plants_dep_Bayes_ER
     sMap -t Pontederiaceae.treedist -T Pontederiaceae.tre -d Pontederiaceae.txt -o Plants_dep_Bayes_ER/tutorial8 -n 1000 -i Pontederiaceae_dep.model.Bayes.ER.nex -ss --max-cov=1
 Once the analysis finishes, take note of the ln-marginal likelihood, which should be around -
 32.36.
@@ -234,13 +234,13 @@ Create plots of the blended analysis with the Plot-sMap utility:
 
 To create a plot for both characters at once:
 
-    Plot-sMap -s Plants_blended/tutorial8.blended.smap.bin –batch
+    Plot-sMap -s Plants_blended/tutorial8.blended.smap.bin --batch
 To create a plot for the flower morphology:
     
-    Plot-sMap -s Plants_blended/tutorial8.blended.smap.bin –batch -c 0 -o Plants_blended/tutorial8.blended.smap.flower.pdf
+    Plot-sMap -s Plants_blended/tutorial8.blended.smap.bin --batch -c 0 -o Plants_blended/tutorial8.blended.smap.flower.pdf
 To create a plot for the self-incompatibility:
 
-    Plot-sMap -s Plants_blended/tutorial8.blended.smap.bin –batch -c 1 -o Plants_blended/tutorial8.blended.smap.self.pdf
+    Plot-sMap -s Plants_blended/tutorial8.blended.smap.bin --batch -c 1 -o Plants_blended/tutorial8.blended.smap.self.pdf
 
 #### 5.3 Multiple characters (conditioned)
 Use a script to run the Bayesian analyses:
