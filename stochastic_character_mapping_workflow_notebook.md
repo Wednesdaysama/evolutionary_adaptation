@@ -207,11 +207,11 @@ These priors are specified in the Pontederiaceae_dep.model.Bayes.ARD.nex file.
     sMap -t Pontederiaceae.treedist -T Pontederiaceae.tre -d Pontederiaceae.txt -o Plants_dep_Bayes_ARD/tutorial8 -n 1000 -i Pontederiaceae_dep.model.Bayes.ARD.nex -ss --max-samples=10000 --ss-estimate-steps
 Take note of the ln-marginal likelihood, which should be around -24.75.
 
-    $mkdir Plants_dep_ML_ER
+    mkdir Plants_dep_ML_ER
     sMap -t Pontederiaceae.tre -d Pontederiaceae.txt -o Plants_dep_ML_ER/tutorial8 -n 1000 -i Pontederiaceae_dep.model.ML.ER.nex
 Take note of the ML estimate for the rates, which should be around 0.252.
 
-    mkdir Plants_dep_Bayes_ER
+    $mkdir Plants_dep_Bayes_ER
     sMap -t Pontederiaceae.treedist -T Pontederiaceae.tre -d Pontederiaceae.txt -o Plants_dep_Bayes_ER/tutorial8 -n 1000 -i Pontederiaceae_dep.model.Bayes.ER.nex -ss --max-cov=1
 Once the analysis finishes, take note of the ln-marginal likelihood, which should be around -
 32.36.
