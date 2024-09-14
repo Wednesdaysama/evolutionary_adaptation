@@ -71,7 +71,42 @@ should apply more memory and CUP to run gtdbtk, as the pplacer would be killed.
 32 clusters were built: 399 alkaline species, 646 marine species, and  1168 other species were found.
 There were 2213 genomes.
 
-## 2 make species tree (this step could be moved after running metaerg. Then, using the faa results)
+## 2 Annotate genes via Metaerg with --mode usage
+#### 2.1 run metaerg on the cloud
+Activate the virtual environment:
+
+    source /bio/bin/profile
+    echo $PATH
+    source /bio/bin/python-env/bin/activate
+Go to the metaerg directory. Run the following command: (23 genomes spend 17.3 hours)
+
+    nohup metaerg --database_dir /bio/databases/metaerg --contig_file ../fna --file_extension .fna --output_dir ./  --force all --mode comparative_genomics &
+
+This command can generate multiply sequence alignment in the directory of /bio/data/Lianchun/evolut_adapt/1/metaerg/comparative_genomics/clusters.faa.align. So the *.faa files in this directory can be used to create ultrafast bootstrap tree distributions.
+#### 2.2 run metaerg on ARC
+50 G mem：1 genome spent 1 h and 40 min and 95% CPU was used
+
+    #!/bin/bash
+    #SBATCH --job-name=metaerg_test      # Job name
+    #SBATCH --nodes=1             # Run all processes on a single node
+    #SBATCH --ntasks=1            # Run 4 tasks
+    #SBATCH --cpus-per-task=6    # Number of CPU cores per task
+    #SBATCH --mem=100G            # Job memory request
+    #SBATCH --time=04:00:00       # 23 genomes spend 17.3 hours
+    #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
+    #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
+    #SBATCH --partition=cpu2021
+    pwd; hostname; date
+
+    \time  singularity exec --bind /work/ebg_lab/referenceDatabases/metaerg_db_V214:/databases --bind /home/lianchun.yi1/cluster_data/1/fna:/data --writable /work/ebg_lab/software/metaerg-v2.5.2/sandbox_metaerg_2.5.6/ metaerg --database_dir /databases --contig_file /data --file_extension .fna --mode comparative_genomics 
+
+Compress and decompress
+
+    tar -zcvf archive.tar.gz ./
+    tar -xzf archive.tar.gz 
+
+
+## 3 Make species tree for one clade
 Submitting the species_tree.slurm file below to ARC: (CPU efficiency: 4.8%, Memory efficiency: 0.4%)
 
     #!/bin/bash
@@ -95,42 +130,8 @@ Submitting the species_tree.slurm file below to ARC: (CPU efficiency: 4.8%, Memo
 Uploading the ./concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make visualized phylogenetic trees. Or using [R](https://posit.cloud/spaces/485061/content/all?sort=name_asc).
 
 
-## 3 annotate genes via Metaerg with --mode usage
-#### 3.1 run metaerg on the cloud
-Activate the virtual environment:
-
-    source /bio/bin/profile
-    echo $PATH
-    source /bio/bin/python-env/bin/activate
-Go to the metaerg directory. Run the following command: (23 genomes spend 17.3 hours)
-
-    nohup metaerg --database_dir /bio/databases/metaerg --contig_file ../fna --file_extension .fna --output_dir ./  --force all --mode comparative_genomics &
-
-This command can generate multiply sequence alignment in the directory of /bio/data/Lianchun/evolut_adapt/1/metaerg/comparative_genomics/clusters.faa.align. So the *.faa files in this directory can be used to create ultrafast bootstrap tree distributions.
-#### 3.2 run metaerg on ARC
-50 G mem：1 genome spent 1 h and 40 min and 95% CPU was used
-
-    #!/bin/bash
-    #SBATCH --job-name=metaerg_test      # Job name
-    #SBATCH --nodes=1             # Run all processes on a single node
-    #SBATCH --ntasks=1            # Run 4 tasks
-    #SBATCH --cpus-per-task=6    # Number of CPU cores per task
-    #SBATCH --mem=100G            # Job memory request
-    #SBATCH --time=04:00:00       # 23 genomes spend 17.3 hours
-    #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
-    #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
-    #SBATCH --partition=cpu2021
-    pwd; hostname; date
-
-    \time  singularity exec --bind /work/ebg_lab/referenceDatabases/metaerg_db_V214:/databases --bind /home/lianchun.yi1/cluster_data/1/fna:/data --writable /work/ebg_lab/software/metaerg-v2.5.2/sandbox_metaerg_2.5.6/ metaerg --database_dir /databases --contig_file /data --file_extension .fna --mode comparative_genomics 
-
-Compress and decompress
-
-    tar -zcvf archive.tar.gz ./
-    tar -xzf archive.tar.gz 
-
-## 4 ultrafast bootstrap tree distributions
-Submitting bootstrap_gene_tree.slurm file to arc: (CPU efficiency: 12.5%, Memory efficiency: 0.1%)
+## 4 Create ultrafast bootstrap gene tree distributions
+Submitting the bootstrap_gene_tree.slurm file to arc: (CPU efficiency: 12.5%, Memory efficiency: 0.1%)
 
     #!/bin/bash
     #SBATCH --job-name=1_GeneTree      # Job name
@@ -149,6 +150,8 @@ Submitting bootstrap_gene_tree.slurm file to arc: (CPU efficiency: 12.5%, Memory
 
 
 Move all the .ufboot files to the /bio/data/Lianchun/evolut_adapt/1/bootstrap/ directory. 
+
+
 ## 5 Create ale objects
 go to the bootstrap directory and create several subdirectories. In each subdirectory, run the following command:
 
@@ -163,6 +166,7 @@ Need to create re-rooted species trees by ITOL first. Check or change the specie
 The LY_species_tree_name_modify.py scirpt will modify the old species name and generate *.newick files, roots_to_test.txt, and species_list_demo.txt files. Then go to each subdirectory and run:
 
     for file in *.ale; do ALEml_undated ../reroot1.newick "$file" separators="."; done
+    
 ## 7 Interpretation of ALE results
 ### 7.1 choose rerooted species tree. 
 change file names in the reroot directory.
@@ -188,6 +192,7 @@ Download the above script in the same directory as write_consel_file_p3.py (dire
     python DTL_ratio_analysis_ML_diff_Fan.py reroot2 LS
     python DTL_ratio_analysis_ML_diff_Fan.py reroot2 TS
     python DTL_ratio_analysis_ML_diff_Fan.py reroot2 DS
+    
 ### 7.3 Gene content evolution on the most likely rooted species tree
 Go to the reroot directory and run [branchwise_numbers_of_events.py](https://github.com/ak-andromeda/ALE_methods/blob/main/branchwise_number_of_events.py) below:
 
