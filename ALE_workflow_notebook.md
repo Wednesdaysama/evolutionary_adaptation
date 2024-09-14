@@ -153,11 +153,35 @@ Move all the .ufboot files to the /bio/data/Lianchun/evolut_adapt/1/bootstrap/ d
 
 
 ## 5 Create ale objects
-go to the bootstrap directory and create several subdirectories. In each subdirectory, run the following command:
+Submitting the following create_ale_objects.slurm file to arc. Make sure to replace the **temp** with clade orders!
 
-    cd /bio/data/Lianchun/evolut_adapt/1/bootstrap/group
-    for file in *.ufboot; do ALEobserve "$file" ; done
-Open the *.ale files and check the name of species! There are double names!
+    #!/bin/bash
+    #SBATCH --job-name=test_Ale_Objects      # Job name
+    #SBATCH --output=%x.log  # Job's standard output and error log
+    #SBATCH --nodes=1             # Run all processes on a single node
+    #SBATCH --ntasks=1            # Run 1 tasks
+    #SBATCH --cpus-per-task=1    # Number of CPU cores per task
+    #SBATCH --mem=10G            # Job memory request
+    #SBATCH --time=00:10:00       # processing 1500 genes spends 10 hours 
+    #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
+    #SBATCH --mail-type=END                       # Send the type: <BEGIN><FAIL><END>
+    pwd; hostname; date
+
+
+    for file in /work/ebg_lab/eb/Lianchun/temp/*.ufboot
+
+    do
+        echo "Processing $file..."
+        singularity exec --bind /work/ebg_lab/eb/Lianchun/temp/:/work/ebg_lab/eb/Lianchun/temp/ /work/ebg_lab/software/ale/ ALEobserve "$file"
+    done
+
+
+
+Open the *.ale files and check the name of the species! There are double names!
+
+
+
+
 ## 6 Computing gene trees for each candidate rooted species tree
 Need to create re-rooted species trees by ITOL first. Check or change the species name accordingly (reroot1.txt). 
 
