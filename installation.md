@@ -128,9 +128,19 @@ Press **Win+R** and type **cmd**
 ### [ALE](https://github.com/ssolo/ALE/tree/master)
 Install ALE on ARC:
 
+    mkdir /work/ebg_lab/software/ale
     singularity build --force --sandbox /work/ebg_lab/software/ale/ docker://boussau/alesuite
 
-/work/ebg_lab/software/ale/ is the sandbox.
+Run ale:
+
+    #!/bin/bash
+    for file in /work/ebg_lab/eb/Lianchun/temp/*.ufboot
+
+    do
+        echo "Processing $file..."
+        singularity exec --bind /work/ebg_lab/eb/Lianchun/temp/:/work/ebg_lab/eb/Lianchun/temp/ /work/ebg_lab/software/ale/ ALEobserve "$file"
+    done
+
 
 
 
