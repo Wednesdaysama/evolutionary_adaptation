@@ -121,10 +121,10 @@ Submitting the species_tree.slurm file below to ARC: (CPU efficiency: 4.8%, Memo
     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
     pwd; hostname; date
 
-    cd /work/ebg_lab/eb/Lianchun/1/fna/faa   # need to change this clade number correspondingly
+    cd /work/ebg_lab/eb/Lianchun/1   # need to change this clade number correspondingly
 
     source ~/bio/bin/3.10_python-env/bin/activate        
-    tree_of_mags --mag_faa_dir ./ --mag_file_extension .faa
+    tree_of_mags --mag_faa_dir ./fna/faa --mag_file_extension .faa
     iqtree2 -s ./alignments/concatenated_alignment -nt 16 -bb 1000 -wbtl
 
 Uploading the ./concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make visualized phylogenetic trees. Or using [R](https://posit.cloud/spaces/485061/content/all?sort=name_asc).
