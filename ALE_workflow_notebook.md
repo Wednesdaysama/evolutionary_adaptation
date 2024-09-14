@@ -139,7 +139,7 @@ Submitting the bootstrap_gene_tree.slurm file to arc: (CPU efficiency: 12.5%, Me
     #SBATCH --ntasks=1            # Run 1 tasks
     #SBATCH --cpus-per-task=8    # Number of CPU cores per task
     #SBATCH --mem=64G            # Job memory request
-    #SBATCH --time=168:00:00       # processing 1500 genes spends 10 hours 
+    #SBATCH --time=168:00:00       # processing x genes spends x hours 
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
     pwd; hostname; date
@@ -161,8 +161,8 @@ Submitting the following create_ale_objects.slurm file to arc. Make sure to repl
     #SBATCH --nodes=1             # Run all processes on a single node
     #SBATCH --ntasks=1            # Run 1 tasks
     #SBATCH --cpus-per-task=1    # Number of CPU cores per task
-    #SBATCH --mem=10G            # Job memory request
-    #SBATCH --time=00:10:00       # processing 1500 genes spends 10 hours 
+    #SBATCH --mem=16G            # Job memory request
+    #SBATCH --time=24:00:00       # processing x genes spends x hours 
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
     #SBATCH --mail-type=END                       # Send the type: <BEGIN><FAIL><END>
     pwd; hostname; date
