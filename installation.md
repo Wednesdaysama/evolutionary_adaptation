@@ -125,8 +125,10 @@ Press **Win+R** and type **cmd**
 
     sMap -h 
     
-    
+### [ALE](https://github.com/ssolo/ALE/tree/master)
+Install ALE on ARC:
 
+    singularity build --force --sandbox /work/ebg_lab/software/ale/ docker://boussau/alesuite
     
 
 
