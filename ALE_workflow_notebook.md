@@ -72,7 +72,7 @@ should apply more memory and CUP to run gtdbtk, as the pplacer would be killed.
 There were 2213 genomes.
 
 ## 2 make species tree (this step could be moved after running metaerg. Then, using the faa results)
-Submitting the species_tree.slurm file below to ARC:
+Submitting the species_tree.slurm file below to ARC: (CPU efficiency: 4.8%, Memory efficiency: 0.4%)
 
     #!/bin/bash
     #SBATCH --job-name=1_SpeciesTree      # Job name
@@ -130,8 +130,24 @@ Compress and decompress
     tar -xzf archive.tar.gz 
 
 ## 4 ultrafast bootstrap tree distributions
+Submitting bootstrap_gene_tree.slurm file to arc: (CPU efficiency: 12.5%, Memory efficiency: 0.1%)
 
-    nohup sh -c 'for file in /bio/data/Lianchun/evolut_adapt/1/metaerg/comparative_genomics/clusters.faa.align/*.faa; do iqtree2 -s "$file" -m MFP -madd LG+C20,LG+C60 -B 10000 -wbtl ; done' &
+    #!/bin/bash
+    #SBATCH --job-name=1_GeneTree      # Job name
+    #SBATCH --nodes=1             # Run all processes on a single node
+    #SBATCH --ntasks=1            # Run 1 tasks
+    #SBATCH --cpus-per-task=8    # Number of CPU cores per task
+    #SBATCH --mem=64G            # Job memory request
+    #SBATCH --time=168:00:00       # processing 1500 genes spends 10 hours 
+    #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
+    #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
+    pwd; hostname; date
+
+    cd /work/ebg_lab/eb/Lianchun/1
+
+    sh -c 'for file in ./fna/comparative_genomics/clusters.cds.faa.align/*.faa; do iqtree2 -s "$file" -m MFP -madd LG+C20,LG+C60 -B 10000 -wbtl ; done'
+
+
 Move all the .ufboot files to the /bio/data/Lianchun/evolut_adapt/1/bootstrap/ directory. 
 ## 5 Create ale objects
 go to the bootstrap directory and create several subdirectories. In each subdirectory, run the following command:
