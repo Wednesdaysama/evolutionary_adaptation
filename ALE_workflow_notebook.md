@@ -72,36 +72,28 @@ should apply more memory and CUP to run gtdbtk, as the pplacer would be killed.
 There were 2213 genomes.
 
 ## 2 make species tree (this step could be moved after running metaerg. Then, using the faa results)
-build concatenated_alignment via tree_of_mags
-
-     tree_of_mags --mag_fna_dir ../fna --mag_faa_dir ../fna --mag_file_extension .fna
-go to the alignments directory, and make the tree via fasttree or raxml or iqtree 
-
-     fasttree ./concatenated_alignment >fasttree_file
-raxml 23 genomes spend ~50 mins
-
-     nohup raxmlHPC-PTHREADS -s ./concatenated_alignment -n raxml-tree -m PROTGAMMALG -f a -p 13 -x 123 -# 100 -T 16 &
-iqtree: 23 genomes spend 53.5 mins (can not use nohup)
-
-     iqtree2 -s concatenated_alignment -nt 16 -bb 1000 -wbtl
-upload the fasttree_file, and concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make visualized phylogenetic trees. Or using [R](https://posit.cloud/spaces/485061/content/all?sort=name_asc).
-
-run iqtree on ARC:
+Submitting the species_tree.slurm file below to ARC:
 
     #!/bin/bash
-    #SBATCH --job-name=iqtree2      # Job name
+    #SBATCH --job-name=1_SpeciesTree      # Job name
+    #SBATCH --output=%x.log  # Job's standard output and error log
     #SBATCH --nodes=1             # Run all processes on a single node
-    #SBATCH --ntasks=1            # Run 4 tasks
-    #SBATCH --cpus-per-task=1    # Number of CPU cores per task
-    #SBATCH --mem=20G            # Job memory request
-    #SBATCH --time=4:00:00       # Time limit hrs:min:sec
-    #SBATCH --output=iqtree%j.log  # Standard output and error log
+    #SBATCH --ntasks=1            # Run 1 tasks
+    #SBATCH --cpus-per-task=16    # Number of CPU cores per task
+    #SBATCH --mem=100G            # Job memory request
+    #SBATCH --time=50:00:00       # processing 1500 genes spends 10 hours 
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
     pwd; hostname; date
-    
-    conda activate iqtree2_env
-    iqtree2 -s concatenated_alignment -nt 16 -bb 1000 -wbtl
+
+    cd /work/ebg_lab/eb/Lianchun/1/fna/faa   # need to change this clade number correspondingly
+
+    source ~/bio/bin/3.10_python-env/bin/activate        
+    tree_of_mags --mag_faa_dir ./ --mag_file_extension .faa
+    iqtree2 -s ./alignments/concatenated_alignment -nt 16 -bb 1000 -wbtl
+
+Uploading the ./concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make visualized phylogenetic trees. Or using [R](https://posit.cloud/spaces/485061/content/all?sort=name_asc).
+
 
 ## 3 annotate genes via Metaerg with --mode usage
 #### 3.1 run metaerg on the cloud
