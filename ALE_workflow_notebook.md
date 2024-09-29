@@ -5,11 +5,14 @@
 
     salloc --mem=20G -c 1 -N 1 -n 1  -t 04:00:00
 
-## 0 Submit a job to ARC: using blastp as an example.
+
 <details>
 <summary>
+
+## 0 Submit a job to ARC: using blastp as an example.</summary>
+
     
-#### 0.1 basic commands</summary>
+#### 0.1 basic commands
 
 
     arc.nodes  # check the available partition nodes
@@ -18,7 +21,7 @@
     squeue-long -u lianchun.yi1 # check the user's running queue
     arc.job-info <Job ID> # Job Monitoring
     scancel <Job ID> # cancel the job
-</details>
+
 
 #### 0.2 Put the content below into the .slurm file:
 
@@ -36,6 +39,7 @@
     
     \time blastp -query ~/databases/Soda_lakes_DB_Flag2_no_separator_V5.fasta -db bicar_db -out ~/data/bicar_blastp_run7 -outfmt 6 -evalue 0.001
 
+</details>
 
 ## 1. Data Acquisition (except Inner Mongolia soda lake)
 There are three alkaline soda lakes: Kulunda Steppe, Inner Mongolia and Cariboo plateau.
