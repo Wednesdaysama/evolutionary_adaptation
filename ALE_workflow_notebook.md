@@ -156,7 +156,7 @@ Uploading the ./concatenated_alignment.treefile to [ITOL](https://itol.embl.de/u
 
 
 ## 4 Create ultrafast bootstrap gene tree distributions
-Submitting the **xargs_bootstrap_gene_tree.slurm** file to arc: (CPU efficiency: 97%, Mem efficiency: 26%)
+Submitting the **xargs_bootstrap_gene_tree.slurm** file to arc: (CPU efficiency: 97%, Mem efficiency: 52%)
 
     #!/bin/bash
     #SBATCH --job-name=1_GeneTree      # Job name
