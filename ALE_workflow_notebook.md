@@ -139,9 +139,9 @@ Check the log file of tree_of_mags. Compare it to the real genome count.
     #SBATCH --output=%x.log  # Job's standard output and error log
     #SBATCH --nodes=1             # Run all processes on a single node
     #SBATCH --ntasks=1            # Run 1 tasks
-    #SBATCH --cpus-per-task=4    # Number of CPU cores per task
+    #SBATCH --cpus-per-task=16    # Number of CPU cores per task
     #SBATCH --mem=50G            # Job memory request
-    #SBATCH --time=6:00:00       # tree_of_mags: 17 genomes spend 8 min. iqtree: 189 aln.faa files spend 
+    #SBATCH --time=48:00:00       # tree_of_mags: 17 genomes spend 8 min. Iqtree spends 40 min
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
     pwd; hostname; date
@@ -150,7 +150,7 @@ Check the log file of tree_of_mags. Compare it to the real genome count.
 
     source ~/bio/bin/3.10_python-env/bin/activate        
     tree_of_mags --mag_faa_dir ./fna/faa --mag_file_extension .faa
-    iqtree2 -s ./alignments/concatenated_alignment -nt 4 -bb 1000 -wbtl
+    iqtree2 -s ./alignments/concatenated_alignment -nt 16 -bb 100000 -wbtl
 
 Uploading the ./concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make visualized phylogenetic trees. Or using [R](https://posit.cloud/spaces/485061/content/all?sort=name_asc).
 
