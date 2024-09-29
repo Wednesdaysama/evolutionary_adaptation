@@ -41,7 +41,10 @@
 
 </details>
 
-## 1. Data Acquisition (except Inner Mongolia soda lake)
+<details>
+<summary>
+    
+## 1. Data Acquisition (except Inner Mongolia soda lake)</summary>
 There are three alkaline soda lakes: Kulunda Steppe, Inner Mongolia and Cariboo plateau.
 References can be found below:
 
@@ -80,6 +83,8 @@ should apply more memory and CUP to run gtdbtk, as the pplacer would be killed.
 #### 1.4 followed the four jupyter lab notebooks and collected target genomes
 32 clusters were built: 399 alkaline species, 646 marine species, and  1168 other species were found.
 There were 2213 genomes.
+
+</details>
 
 ## 2 Annotate genes via Metaerg with --mode usage
 #### 2.1 run metaerg on the cloud
