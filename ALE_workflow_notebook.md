@@ -7,7 +7,8 @@
 
 ## 0 Submit a job to ARC: using blastp as an example.
 <details>
-<summary>#### 0.1 basic commands</summary>
+<summary>
+#### 0.1 basic commands</summary>
 
 
     arc.nodes  # check the available partition nodes
