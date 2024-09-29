@@ -121,7 +121,7 @@ Check the log file of tree_of_mags. Compare it to the real genome count.
     #SBATCH --ntasks=1            # Run 1 tasks
     #SBATCH --cpus-per-task=4    # Number of CPU cores per task
     #SBATCH --mem=50G            # Job memory request
-    #SBATCH --time=6:00:00       # processing 1 genome spends 0.26 hour 
+    #SBATCH --time=6:00:00       # tree_of_mags: 17 genomes spend 8 min. iqtree: 189 aln.faa files spend 
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
     pwd; hostname; date
@@ -154,8 +154,6 @@ Submitting the **bootstrap_gene_tree.slurm** file to arc: (CPU efficiency: 12.5%
     sh -c 'for file in ./fna/comparative_genomics/clusters.cds.faa.align/*.faa; do iqtree2 -s "$file" -m MFP -madd LG+C20,LG+C60 -B 10000 -wbtl ; done'
 
 
-Move all the .ufboot files to the /bio/data/Lianchun/evolut_adapt/1/bootstrap/ directory. 
-
 
 ## 5 Create ale objects
 Submitting the following create_ale_objects.slurm file to arc: (CPU efficiency: 37%, Memory efficiency: 0.4%)
@@ -171,7 +169,7 @@ Make sure to change the actual clade orders!
     #SBATCH --mem=10G            # Job memory request
     #SBATCH --time=10:00:00       # 1.3 files/s
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
-    #SBATCH --mail-type=END                       # Send the type: <BEGIN><FAIL><END>
+    #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
     pwd; hostname; date
 
 
@@ -194,7 +192,7 @@ Need to create re-rooted species trees by ITOL first. Check or change the specie
 
     python LY_species_tree_name_modify.py
 
-The LY_species_tree_name_modify.py scirpt will modify the old species name and generate *.newick files, roots_to_test.txt, and species_list_demo.txt files. Then go to each subdirectory and run:
+The LY_species_tree_name_modify.py script will modify the old species name and generate *.newick files, roots_to_test.txt, and species_list_demo.txt files. Then go to each subdirectory and run:
 
     for file in *.ale; do ALEml_undated ../reroot1.newick "$file" separators="."; done
     
