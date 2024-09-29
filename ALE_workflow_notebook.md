@@ -107,16 +107,21 @@ Compress and decompress
 
 
 ## 3 Make species tree for one clade
-Submitting the species_tree.slurm file below to ARC: (CPU efficiency: 4.8%, Memory efficiency: 0.4%)
+Submitting the **species_tree.slurm** file below to ARC: (CPU efficiency: 4.8%, Memory efficiency: 0.4%). 
+
+Remember to change the **-nt** value accordingly.
+
+Check the log file of tree_of_mags. Compare it to the real genome count. 
+
 
     #!/bin/bash
     #SBATCH --job-name=1_SpeciesTree      # Job name
     #SBATCH --output=%x.log  # Job's standard output and error log
     #SBATCH --nodes=1             # Run all processes on a single node
     #SBATCH --ntasks=1            # Run 1 tasks
-    #SBATCH --cpus-per-task=16    # Number of CPU cores per task
-    #SBATCH --mem=100G            # Job memory request
-    #SBATCH --time=50:00:00       # processing 1500 genes spends 10 hours 
+    #SBATCH --cpus-per-task=4    # Number of CPU cores per task
+    #SBATCH --mem=50G            # Job memory request
+    #SBATCH --time=50:00:00       # processing 1 genome spends 0.26 hour 
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
     pwd; hostname; date
@@ -125,13 +130,13 @@ Submitting the species_tree.slurm file below to ARC: (CPU efficiency: 4.8%, Memo
 
     source ~/bio/bin/3.10_python-env/bin/activate        
     tree_of_mags --mag_faa_dir ./fna/faa --mag_file_extension .faa
-    iqtree2 -s ./alignments/concatenated_alignment -nt 16 -bb 1000 -wbtl
+    iqtree2 -s ./alignments/concatenated_alignment -nt 4 -bb 1000 -wbtl
 
 Uploading the ./concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make visualized phylogenetic trees. Or using [R](https://posit.cloud/spaces/485061/content/all?sort=name_asc).
 
 
 ## 4 Create ultrafast bootstrap gene tree distributions
-Submitting the bootstrap_gene_tree.slurm file to arc: (CPU efficiency: 12.5%, Memory efficiency: 0.1%)
+Submitting the **bootstrap_gene_tree.slurm** file to arc: (CPU efficiency: 12.5%, Memory efficiency: 0.1%)
 
     #!/bin/bash
     #SBATCH --job-name=1_GeneTree      # Job name
@@ -139,7 +144,7 @@ Submitting the bootstrap_gene_tree.slurm file to arc: (CPU efficiency: 12.5%, Me
     #SBATCH --ntasks=1            # Run 1 tasks
     #SBATCH --cpus-per-task=8    # Number of CPU cores per task
     #SBATCH --mem=64G            # Job memory request
-    #SBATCH --time=168:00:00       # processing x genes spends x hours 
+    #SBATCH --time=168:00:00       # processing 2800 files spends 7 days 
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
     pwd; hostname; date
@@ -153,7 +158,7 @@ Move all the .ufboot files to the /bio/data/Lianchun/evolut_adapt/1/bootstrap/ d
 
 
 ## 5 Create ale objects
-Submitting the following create_ale_objects.slurm file to arc. Make sure to replace the **temp** with clade orders!
+Submitting the following create_ale_objects.slurm file to arc. Make sure to change the actual clade orders!
 
     #!/bin/bash
     #SBATCH --job-name=test_Ale_Objects      # Job name
@@ -168,7 +173,7 @@ Submitting the following create_ale_objects.slurm file to arc. Make sure to repl
     pwd; hostname; date
 
 
-    for file in /work/ebg_lab/eb/Lianchun/temp/*.ufboot
+    for file in /work/ebg_lab/eb/Lianchun/1/fna/comparative_genomics/clusters.cds.faa.align/*.ufboot
 
     do
         echo "Processing $file..."
