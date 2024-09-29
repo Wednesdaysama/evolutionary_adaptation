@@ -163,7 +163,7 @@ Submitting the **xargs_bootstrap_gene_tree.slurm** file to arc: (CPU efficiency:
     #SBATCH --nodes=1             # Run all processes on a single node
     #SBATCH --ntasks=1            # Run 1 tasks
     #SBATCH --cpus-per-task=16    # Number of CPU cores per task
-    #SBATCH --mem=64G            # Job memory request
+                                  # Do not request memory for this job
     #SBATCH --time=150:00:00       # 3 files/min 
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
