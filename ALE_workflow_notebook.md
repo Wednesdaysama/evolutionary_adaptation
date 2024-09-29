@@ -156,13 +156,13 @@ Uploading the ./concatenated_alignment.treefile to [ITOL](https://itol.embl.de/u
 
 
 ## 4 Create ultrafast bootstrap gene tree distributions
-Submitting the **bootstrap_gene_tree.slurm** file to arc: (CPU efficiency: 12.5%, Memory efficiency: 0.1%)
+Submitting the **xargs_bootstrap_gene_tree.slurm** file to arc: (CPU efficiency: 75%, Memory efficiency: 4%)
 
     #!/bin/bash
     #SBATCH --job-name=1_GeneTree      # Job name
     #SBATCH --nodes=1             # Run all processes on a single node
     #SBATCH --ntasks=1            # Run 1 tasks
-    #SBATCH --cpus-per-task=8    # Number of CPU cores per task
+    #SBATCH --cpus-per-task=16    # Number of CPU cores per task
     #SBATCH --mem=64G            # Job memory request
     #SBATCH --time=168:00:00       # processing 2800 files spends 7 days 
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
@@ -171,7 +171,7 @@ Submitting the **bootstrap_gene_tree.slurm** file to arc: (CPU efficiency: 12.5%
 
     cd /work/ebg_lab/eb/Lianchun/1
 
-    sh -c 'for file in ./fna/comparative_genomics/clusters.cds.faa.align/*.faa; do iqtree2 -s "$file" -m MFP -madd LG+C20,LG+C60 -B 10000 -wbtl ; done'
+    find ./fna/comparative_genomics/clusters.cds.faa.align/*.faa | xargs -n 1 -P 1500 -I {} iqtree2 -s {} -m MFP -madd LG+C20,LG+C60 -B 10000 -wbtl
 
 
 
