@@ -6,7 +6,9 @@
     salloc --mem=20G -c 1 -N 1 -n 1  -t 04:00:00
 
 ## 0 Submit a job to ARC: using blastp as an example.
-#### 0.1 basic commands
+<details>
+<summary>#### 0.1 basic commands</summary>
+
 
     arc.nodes  # check the available partition nodes
     nano bicar_blastp.slurm   # write the script (refer the 0.2 for details)  
