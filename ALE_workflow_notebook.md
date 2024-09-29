@@ -76,7 +76,7 @@ should apply more memory and CUP to run gtdbtk, as the pplacer would be killed.
 
     gtdbtk classify_wf --genes --genome_dir /home/lianchun.yi1/data/chinese_mags/385-protein -x .faa --out_dir /home/lianchun.yi1/data/chinese_mags/gtdbtk_run1 --cpus 6 --skip_ani_screen
 
-#### 0 Run cd-hit to remove duplicate sequence
+#### 1.3 Run cd-hit to remove duplicate sequence
 
      cd-hit -i Nodosilinea.faa -o Nodosilinea_cd-hit.faa -c 0.95 -n 5 -T 8
 
@@ -86,7 +86,10 @@ There were 2213 genomes.
 
 </details>
 
-## 2 Annotate genes via Metaerg with --mode usage
+<details>
+<summary>
+    
+## 2 Annotate genes via Metaerg with --mode usage</summary>
 #### 2.1 run metaerg on the cloud
 Activate the virtual environment:
 
@@ -119,6 +122,8 @@ Compress and decompress
 
     tar -zcvf archive.tar.gz ./
     tar -xzf archive.tar.gz 
+
+</details>
 
 
 ## 3 Make species tree for one clade
