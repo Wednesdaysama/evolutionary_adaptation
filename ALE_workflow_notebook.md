@@ -107,7 +107,7 @@ Compress and decompress
 
 
 ## 3 Make species tree for one clade
-Submitting the **species_tree.slurm** file below to ARC: (CPU efficiency: 4.8%, Memory efficiency: 0.4%). 
+Submitting the **species_tree.slurm** file below to ARC: (CPU efficiency: 100%, Memory efficiency: 0.1%). 
 
 Remember to change the **-nt** value accordingly.
 
@@ -121,7 +121,7 @@ Check the log file of tree_of_mags. Compare it to the real genome count.
     #SBATCH --ntasks=1            # Run 1 tasks
     #SBATCH --cpus-per-task=4    # Number of CPU cores per task
     #SBATCH --mem=50G            # Job memory request
-    #SBATCH --time=50:00:00       # processing 1 genome spends 0.26 hour 
+    #SBATCH --time=6:00:00       # processing 1 genome spends 0.26 hour 
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
     pwd; hostname; date
