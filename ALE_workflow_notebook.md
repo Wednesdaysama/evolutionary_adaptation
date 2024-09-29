@@ -17,6 +17,7 @@
     arc.job-info <Job ID> # Job Monitoring
     scancel <Job ID> # cancel the job
 </details>
+
 #### 0.2 Put the content below into the .slurm file:
 
     #!/bin/bash
