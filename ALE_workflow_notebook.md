@@ -156,7 +156,7 @@ Uploading the ./concatenated_alignment.treefile to [ITOL](https://itol.embl.de/u
 
 
 ## 4 Create ultrafast bootstrap gene tree distributions
-Submitting the **xargs_bootstrap_gene_tree.slurm** file to arc: (CPU efficiency: 75%, Memory efficiency: 4%)
+Submitting the **xargs_bootstrap_gene_tree.slurm** file to arc: (CPU efficiency: 124%, Memory efficiency: 40%)
 
     #!/bin/bash
     #SBATCH --job-name=1_GeneTree      # Job name
@@ -164,7 +164,7 @@ Submitting the **xargs_bootstrap_gene_tree.slurm** file to arc: (CPU efficiency:
     #SBATCH --ntasks=1            # Run 1 tasks
     #SBATCH --cpus-per-task=16    # Number of CPU cores per task
     #SBATCH --mem=64G            # Job memory request
-    #SBATCH --time=168:00:00       # processing 2800 files spends 7 days 
+    #SBATCH --time=150:00:00       # 3 files/min 
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
     pwd; hostname; date
@@ -176,7 +176,7 @@ Submitting the **xargs_bootstrap_gene_tree.slurm** file to arc: (CPU efficiency:
 
 
 ## 5 Create ale objects
-Submitting the following create_ale_objects.slurm file to arc: (CPU efficiency: 37%, Memory efficiency: 0.4%)
+Submitting the following **xargs_create_ale_objects.slurm** file to arc: (CPU efficiency: x%, Memory efficiency: x%)
 
 Make sure to change the actual clade orders!
 
@@ -185,20 +185,17 @@ Make sure to change the actual clade orders!
     #SBATCH --output=%x.log  # Job's standard output and error log
     #SBATCH --nodes=1             # Run all processes on a single node
     #SBATCH --ntasks=1            # Run 1 tasks
-    #SBATCH --cpus-per-task=2    # Number of CPU cores per task
-    #SBATCH --mem=10G            # Job memory request
+    #SBATCH --cpus-per-task=16    # Number of CPU cores per task
+    #SBATCH --mem=64G            # Job memory request
     #SBATCH --time=10:00:00       # 1.3 files/s
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
     pwd; hostname; date
 
 
-    for file in /work/ebg_lab/eb/Lianchun/1/fna/comparative_genomics/clusters.cds.faa.align/*.ufboot    # make sure this line is correct
+    for file in /work/ebg_lab/eb/Lianchun/1    
 
-    do
-        echo "Processing $file..."
-        singularity exec --bind /work/ebg_lab/eb/Lianchun/1/:/work/ebg_lab/eb/Lianchun/1/ /work/ebg_lab/software/ale/ ALEobserve "$file"
-    done                                                                                                # do not have to change this line
+    find ./fna/comparative_genomics/clusters.cds.faa.align/*.ufboot | xargs -n 1 -P 1500 -I {} sh -c 'echo "Processing {}..." && singularity exec --bind /work/ebg_lab/eb/Lianchun/1/fna/comparative_genomics/clusters.cds.faa.align/temp/:/work/ebg_lab/eb/Lianchun/1/fna/comparative_genomics/clusters.cds.faa.align/temp/ /work/ebg_lab/software/ale/ ALEobserve {}'                                                                                          
 
 
 
