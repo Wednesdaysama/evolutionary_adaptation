@@ -177,7 +177,7 @@ Submitting the following create_ale_objects.slurm file to arc. Make sure to chan
 
     do
         echo "Processing $file..."
-        singularity exec --bind /work/ebg_lab/eb/Lianchun/temp/:/work/ebg_lab/eb/Lianchun/temp/ /work/ebg_lab/software/ale/ ALEobserve "$file"
+        singularity exec --bind /work/ebg_lab/eb/Lianchun/1/:/work/ebg_lab/eb/Lianchun/1/ /work/ebg_lab/software/ale/ ALEobserve "$file"
     done
 
 
