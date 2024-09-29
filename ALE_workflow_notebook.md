@@ -175,12 +175,12 @@ Make sure to change the actual clade orders!
     pwd; hostname; date
 
 
-    for file in /work/ebg_lab/eb/Lianchun/1/fna/comparative_genomics/clusters.cds.faa.align/*.ufboot
+    for file in /work/ebg_lab/eb/Lianchun/1/fna/comparative_genomics/clusters.cds.faa.align/*.ufboot    # make sure this line is correct
 
     do
         echo "Processing $file..."
         singularity exec --bind /work/ebg_lab/eb/Lianchun/1/:/work/ebg_lab/eb/Lianchun/1/ /work/ebg_lab/software/ale/ ALEobserve "$file"
-    done
+    done                                                                                                # do not have to change this line
 
 
 
