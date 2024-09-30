@@ -141,7 +141,18 @@ Run ale:
         singularity exec --bind /work/ebg_lab/eb/Lianchun/temp/:/work/ebg_lab/eb/Lianchun/temp/ /work/ebg_lab/software/ale/ ALEobserve "$file"
     done
 
+### [Consel](http://stat.sys.i.kyoto-u.ac.jp/prog/consel/)
 
+    git clone https://github.com/shimo-lab/consel
+    cd consel/src
+    make
+    make install
+    make clean
+    cd ..
+    
+    nano ~/.bashrc   #open the configuration file
+    export PATH=$PATH:/home/lianchun.yi1/software/consel/bin   #add this to this file and save it
+    source ~/.bashrc
 
 
     
