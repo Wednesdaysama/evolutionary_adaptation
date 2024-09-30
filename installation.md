@@ -52,7 +52,7 @@ Download or move the metaerg databases. For me, I save all the helper databases 
 Delete the sandbox
 
     chmod -R u+rwX <sandbox_name>
-    rm <sandbox_name>
+    rm -r <sandbox_name>
 
 Update metaerg on the Cloud:
 
