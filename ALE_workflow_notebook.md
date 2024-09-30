@@ -152,7 +152,17 @@ Check the log file of tree_of_mags. Compare it to the real genome count.
     tree_of_mags --mag_faa_dir ./fna/faa --mag_file_extension .faa
     iqtree2 -s ./alignments/concatenated_alignment -nt 16 -bb 100000 -wbtl
 
-Uploading the ./concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make visualized phylogenetic trees. Or using [R](https://posit.cloud/spaces/485061/content/all?sort=name_asc).
+After completing this run, there are several things that need to be done manually:
+
+1. Uploading the ./concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make rerooted phylogenetic trees. 
+
+2. Exporting the rerooted trees as newick format. Exclude the internal node IDs. 
+
+3. Naming the rerooted trees as **reroot1**, **reroot2**, etc. 
+
+4. Uploading the rerooted treee files to ./<clade order>/fna/comparative_genomics/clusters.cds.faa.align. And also, uploading the [LY_species_tree_name_modify.py](https://github.com/Wednesdaysama/evolutionary_adaptation/blob/main/LY_species_tree_name_modify.py) to this directory.
+
+5. Downloading the  ./concatenated_alignment.treefile to .\Exp_EvolutionaryAdaptation\cluster_results\<order>. And generating unrooted tree figure by running working_generate_trees.py.
 
 
 ## 4 Create ultrafast bootstrap gene tree distributions
