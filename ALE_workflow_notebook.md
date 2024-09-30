@@ -166,7 +166,7 @@ After completing this run, several things need to be done manually:
 
 7. Uploading all generated files, including *.newick, roots_to_test.txt and species_list_demo.txt files to ./<clade order>/fna/comparative_genomics/clusters.cds.faa.align.
 
-8. Downloading the  ./concatenated_alignment.treefile to .\Exp_EvolutionaryAdaptation\cluster_results\<order>. And generating unrooted tree figure by running [LY_generate_trees.py]() on local computer.
+8. Downloading the  ./concatenated_alignment.treefile to .\Exp_EvolutionaryAdaptation\cluster_results\<order>. And generating unrooted tree figure by running [LY_generate_trees.py](https://github.com/Wednesdaysama/evolutionary_adaptation/blob/main/LY_generate_trees.py) on local computer.
 
 
 ## 4 Create ultrafast bootstrap gene tree distributions
@@ -296,3 +296,4 @@ Check the internal node orders. Remember the first and last internal node orders
     python ancestral_modified_VK.py 0.5 16 30
     
 In this case, 0.5 is that 50% of the family's copies exist on the corresponding node. 16 and 30 refer to the number of the first and last internal node. The internal nodes are shown in .uml_rec files.
+
