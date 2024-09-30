@@ -219,18 +219,43 @@ Open the *.ale files and check the name of the species! There are double names!
 
 
 ## 6 Computing gene trees for each candidate rooted species tree
-Go to /work/ebg_lab/.../<clade order>/fna/comparative_genomics/clusters.cds.faa.align/
+Go to /work/.../<clade order>/fna/comparative_genomics/clusters.cds.faa.align/
 
     mkdir reroot1
     cp *.ale reroot1 
     cp -r reroot1 reroot2
     cp -r reroot1 reroot3
     cp -r reroot1 reroot4
-    
-In dif
+    cp -r reroot1 reroot5
+    mv reroot1.newick reroot1
+    mv reroot2.newick reroot2
+    mv reroot3.newick reroot3
+    mv reroot4.newick reroot4
+    mv reroot5.newick reroot5
 
-    for file in *.ale; do ALEml_undated ../reroot1.newick "$file" separators="."; done
-    
+Submitting the following **xargs_reconcile_tree_*.slurm** file to arc: (CPU efficiency: 33%, Memory efficiency: 0.2%)
+
+Make sure to change the actual clade orders!
+
+    #!/bin/bash
+    #SBATCH --job-name=19_reconciliation_reroot1      # Job name
+    #SBATCH --output=%x.log  # Job's standard output and error log
+    #SBATCH --nodes=1             # Run all processes on a single node
+    #SBATCH --ntasks=1            # Run 1 tasks
+    #SBATCH --cpus-per-task=4    # Number of CPU cores per task
+    #SBATCH --mem=20G            # Job memory request
+    #SBATCH --time=04:00:00       # 35 files/min
+    #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  # Send the job information to this email
+    #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
+    pwd; hostname; date
+
+    # should change 3 places on the following command lines
+
+    cd /work/ebg_lab/eb/Lianchun/19/fna/comparative_genomics/clusters.cds.faa.align/reroot1
+
+    singularity exec --bind /work/ebg_lab/eb/Lianchun/19/fna/comparative_genomics/clusters.cds.faa.align/reroot1:/work/ebg_lab/eb/Lianchun/19/fna/comparative_genomics/clusters.cds.faa.align/reroot1 /work/ebg_lab/software/ale bash -c 'for file in *.ale; do ALEml_undated reroot1.newick "$file" separators="."; done'
+
+
 ## 7 Interpretation of ALE results
 ### 7.1 choose rerooted species tree. 
 change file names in the reroot directory.
