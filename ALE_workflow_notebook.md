@@ -152,17 +152,21 @@ Check the log file of tree_of_mags. Compare it to the real genome count.
     tree_of_mags --mag_faa_dir ./fna/faa --mag_file_extension .faa
     iqtree2 -s ./alignments/concatenated_alignment -nt 16 -bb 100000 -wbtl
 
-After completing this run, there are several things that need to be done manually:
+After completing this run, several things need to be done manually:
 
 1. Uploading the ./concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make rerooted phylogenetic trees. 
 
-2. Exporting the rerooted trees as newick format. Exclude the internal node IDs. 
+2. Exporting the rerooted trees in Newick format. Exclude the internal node IDs. 
 
-3. Naming the rerooted trees as **reroot1**, **reroot2**, etc. 
+3. Naming the rerooted trees as **reroot1**, **reroot2**, etc.
 
-4. Uploading the rerooted treee files to ./<clade order>/fna/comparative_genomics/clusters.cds.faa.align. And also, uploading the [LY_species_tree_name_modify.py](https://github.com/Wednesdaysama/evolutionary_adaptation/blob/main/LY_species_tree_name_modify.py) to this directory.
+4. Saving the reroot1.txt, reroot2.txt... files to .\Exp_EvolutionaryAdaptation\cluster_results\<order>.
+   
+5. Running [LY_species_tree_name_modify.py](https://github.com/Wednesdaysama/evolutionary_adaptation/blob/main/LY_species_tree_name_modify.py) on local computer.
 
-5. Downloading the  ./concatenated_alignment.treefile to .\Exp_EvolutionaryAdaptation\cluster_results\<order>. And generating unrooted tree figure by running working_generate_trees.py.
+7. Uploading all generated files, including *.newick, roots_to_test.txt and species_list_demo.txt files to ./<clade order>/fna/comparative_genomics/clusters.cds.faa.align.
+
+8. Downloading the  ./concatenated_alignment.treefile to .\Exp_EvolutionaryAdaptation\cluster_results\<order>. And generating unrooted tree figure by running working_generate_trees.py on local computer.
 
 
 ## 4 Create ultrafast bootstrap gene tree distributions
@@ -215,11 +219,7 @@ Open the *.ale files and check the name of the species! There are double names!
 
 
 ## 6 Computing gene trees for each candidate rooted species tree
-Need to create re-rooted species trees by ITOL first. Check or change the species name accordingly (reroot1.txt). 
-
-    python LY_species_tree_name_modify.py
-
-The LY_species_tree_name_modify.py script will modify the old species name and generate *.newick files, roots_to_test.txt, and species_list_demo.txt files. Then go to each subdirectory and run:
+Go to /work/ebg_lab/.../<clade order>/fna/comparative_genomics/clusters.cds.faa.align/reroot* run:
 
     for file in *.ale; do ALEml_undated ../reroot1.newick "$file" separators="."; done
     
