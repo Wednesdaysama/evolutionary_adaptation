@@ -290,5 +290,8 @@ Go to the **best reroot directory** and run [branchwise_numbers_of_events.py](ht
     
 Check the internal node orders. Remember the first and last internal node orders. If the number of internal nodes (branch nodes) are from 16-30, 16 and 30 should be the first and last internal node orders. In the same reroot directory, run [Ancestral_reconstruction_VK.py](https://github.com/vmkhot/Comparative-Genomics-Verruco/blob/master/ancestral_trial/ancestral_modified_VK.py).
 
-    python Ancestral_reconstruction_VK.py 0.5 16 30
+    cp ~/ancestral_modified_VK.py ./
+    source ~/bio/bin/python-env/bin/activate
+    python ancestral_modified_VK.py 0.5 16 30
+    
 In this case, 0.5 is that 50% of the family's copies exist on the corresponding node. 16 and 30 refer to the number of the first and last internal node. The internal nodes are shown in .uml_rec files.
