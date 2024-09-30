@@ -258,18 +258,16 @@ Make sure to change the actual clade orders!
 
 ## 7 Interpretation of ALE results
 ### 7.1 choose rerooted species tree. 
-change file names in the reroot directory.
+Go to /work/.../<clade order>/fna/comparative_genomics/clusters.cds.faa.align directory, and run:
 
-    rename root1 root *
-generate P value file in the bootstrap directory.
 
-    python write_consel_file_p3.py reroot1 reroot2 > likelihoods_table
+    python write_consel_file_p3.py reroot1 reroot2 reroot3 reroot4 > likelihoods_table
     mv likelihoods_table likelihoods_table.mt
     makermt likelihoods_table.mt
     consel likelihoods_table
     /bio/bin/consel/bin/catpv likelihoods_table > au_test_out 
 
-The root1 and root2 are directory names, which containing the .uml_rec files. "Open the au_test_out file and accept the rerooted tree with P > 0.05.
+The root1 and root2 are directory names, which containing the .uml_rec files. Open the au_test_out file and accept the rerooted tree with P > 0.05.
     
 ### 7.2 Robustness check 
 Download the above script in the same directory as write_consel_file_p3.py (directory A). Create 3 subdirectories in directory A named: root1, root2 and root3. The number of subdirectories is the same as the number of candidate roots. Copy *uml_rec files to their respective subdirectories. In the directory A, manually create text files named [roots_to_test.txt](https://github.com/ak-andromeda/ALE_methods/blob/main/Demo_data/roots_to_test.txt) and [species_list_demo.txt](https://github.com/ak-andromeda/ALE_methods/blob/main/Demo_data/species_list_demo.txt). In the first file, write the name of the directory of the root to be tested. In this example, write reroot1, reroot2. In the second file, write the species names. Note: In these 2 txt files, each directory name or species name must be on a separate line. In the directory A, run the following code:
