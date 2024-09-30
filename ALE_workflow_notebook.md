@@ -151,6 +151,7 @@ Check the log file of tree_of_mags. Compare it to the real genome count.
     source ~/bio/bin/3.10_python-env/bin/activate        
     tree_of_mags --mag_faa_dir ./fna/faa --mag_file_extension .faa
     iqtree2 -s ./alignments/concatenated_alignment -nt 16 -bb 100000 -wbtl
+    sed -E 's/\)([0-9]+(\.[0-9]+)?)\:/\):/g' ./alignments/concatenated_alignment.treefile > concatenated_alignment_NoSupport.treefile
 
 After completing this run, several things need to be done manually:
 
