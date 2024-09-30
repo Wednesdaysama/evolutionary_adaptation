@@ -282,10 +282,13 @@ Download the above script in the same directory as write_consel_file_p3.py (dire
     python DTL_ratio_analysis_ML_diff_Fan.py reroot2 DS
     
 ### 7.3 Gene content evolution on the most likely rooted species tree
-Go to the reroot directory and run [branchwise_numbers_of_events.py](https://github.com/ak-andromeda/ALE_methods/blob/main/branchwise_number_of_events.py) below:
+Go to the **best reroot directory** and run [branchwise_numbers_of_events.py](https://github.com/ak-andromeda/ALE_methods/blob/main/branchwise_number_of_events.py) below:
 
+    cp ~/branchwise_number_of_events.py ./
     python branchwise_number_of_events.py > dtloc.tsv
-Open the output file which is named as .tsv. Check the internal node orders. Remember the first and last internal node orders. If the number of internal nodes (branch nodes) are from 16-30, 16 and 30 should be the first and last internal node orders. In the same reroot directory, run [Ancestral_reconstruction_VK.py](https://github.com/vmkhot/Comparative-Genomics-Verruco/blob/master/ancestral_trial/ancestral_modified_VK.py).
+    less dtloc.tsv
+    
+Check the internal node orders. Remember the first and last internal node orders. If the number of internal nodes (branch nodes) are from 16-30, 16 and 30 should be the first and last internal node orders. In the same reroot directory, run [Ancestral_reconstruction_VK.py](https://github.com/vmkhot/Comparative-Genomics-Verruco/blob/master/ancestral_trial/ancestral_modified_VK.py).
 
     python Ancestral_reconstruction_VK.py 0.5 16 30
 In this case, 0.5 is that 50% of the family's copies exist on the corresponding node. 16 and 30 refer to the number of the first and last internal node. The internal nodes are shown in .uml_rec files.
