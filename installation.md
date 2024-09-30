@@ -129,7 +129,7 @@ Press **Win+R** and type **cmd**
 Install ALE on ARC:
 
     mkdir /work/ebg_lab/software/ale
-    singularity build --force --sandbox /work/ebg_lab/software/ale/ docker://boussau/alesuite
+    singularity build --force --sandbox /work/ebg_lab/software/ale/ docker://boussau/alesuite:latest
 
 Run ale:
 
