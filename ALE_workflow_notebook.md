@@ -219,7 +219,15 @@ Open the *.ale files and check the name of the species! There are double names!
 
 
 ## 6 Computing gene trees for each candidate rooted species tree
-Go to /work/ebg_lab/.../<clade order>/fna/comparative_genomics/clusters.cds.faa.align/reroot* run:
+Go to /work/ebg_lab/.../<clade order>/fna/comparative_genomics/clusters.cds.faa.align/
+
+    mkdir reroot1
+    cp *.ale reroot1 
+    cp -r reroot1 reroot2
+    cp -r reroot1 reroot3
+    cp -r reroot1 reroot4
+    
+In dif
 
     for file in *.ale; do ALEml_undated ../reroot1.newick "$file" separators="."; done
     
