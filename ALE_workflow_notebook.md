@@ -272,6 +272,7 @@ The root1 and root2 are directory names, which containing the .uml_rec files. Op
 ### 7.2 Robustness check 
 Download the above script in the same directory as write_consel_file_p3.py (directory A). Create 3 subdirectories in directory A named: root1, root2 and root3. The number of subdirectories is the same as the number of candidate roots. Copy *uml_rec files to their respective subdirectories. In the directory A, manually create text files named [roots_to_test.txt](https://github.com/ak-andromeda/ALE_methods/blob/main/Demo_data/roots_to_test.txt) and [species_list_demo.txt](https://github.com/ak-andromeda/ALE_methods/blob/main/Demo_data/species_list_demo.txt). In the first file, write the name of the directory of the root to be tested. In this example, write reroot1, reroot2. In the second file, write the species names. Note: In these 2 txt files, each directory name or species name must be on a separate line. In the directory A, run the following code:
 
+    source ~/bio/bin/python-env/bin/activate
     python DTL_ratio_analysis_ML_diff_Fan.py reroot2 S
     python DTL_ratio_analysis_ML_diff_Fan.py reroot2 D
     python DTL_ratio_analysis_ML_diff_Fan.py reroot2 T
