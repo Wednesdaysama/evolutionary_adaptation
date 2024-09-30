@@ -166,7 +166,7 @@ After completing this run, several things need to be done manually:
 
 7. Uploading all generated files, including *.newick, roots_to_test.txt and species_list_demo.txt files to ./<clade order>/fna/comparative_genomics/clusters.cds.faa.align.
 
-8. Downloading the  ./concatenated_alignment.treefile to .\Exp_EvolutionaryAdaptation\cluster_results\<order>. And generating unrooted tree figure by running working_generate_trees.py on local computer.
+8. Downloading the  ./concatenated_alignment.treefile to .\Exp_EvolutionaryAdaptation\cluster_results\<order>. And generating unrooted tree figure by running [LY_generate_trees.py]() on local computer.
 
 
 ## 4 Create ultrafast bootstrap gene tree distributions
