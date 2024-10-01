@@ -228,11 +228,7 @@ Go to /work/.../<clade order>/fna/comparative_genomics/clusters.cds.faa.align/
     cp -r reroot1 reroot3
     cp -r reroot1 reroot4
     cp -r reroot1 reroot5
-    mv reroot1.newick reroot1
-    mv reroot2.newick reroot2
-    mv reroot3.newick reroot3
-    mv reroot4.newick reroot4
-    mv reroot5.newick reroot5
+
 
 Submitting the following **xargs_reconcile_tree_*.slurm** file to arc: (CPU efficiency: 33%, Memory efficiency: 0.2%)
 
