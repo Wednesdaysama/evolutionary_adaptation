@@ -255,8 +255,15 @@ Make sure to change the actual clade orders!
 
 ## 7 Interpretation of ALE results
 ### 7.1 choose rerooted species tree. 
-Go to /work/.../<clade order>/fna/comparative_genomics/clusters.cds.faa.align directory, and run:
+Go to /work/.../<clade order>/fna/comparative_genomics/clusters.cds.faa.align/reroot* directory, run:
 
+    rename root1 root *
+
+This will replace root1 with root in all filenames containing root1 in the current directory.
+
+Then, run:
+
+    cd ..
     cp ~/write_consel_file_p3.py ./
     python write_consel_file_p3.py reroot1 reroot2 reroot3 reroot4 > likelihoods_table
     mv likelihoods_table likelihoods_table.mt
