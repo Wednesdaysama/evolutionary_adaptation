@@ -270,6 +270,8 @@ Go to /work/.../<clade order>/fna/comparative_genomics/clusters.cds.faa.align/ d
     rename reroot3 root *    
     cd ../reroot4
     rename reroot4 root *
+    cd ../reroot5
+    rename reroot5 root *
 
 This will replace root1 with root in all filenames containing root1/2/3/4 in the reroot1/2/3/4 subdirectories.
 
@@ -277,7 +279,7 @@ Then, run:
 
     cd ..
     cp ~/write_consel_file_p3.py ./
-    python write_consel_file_p3.py reroot1 reroot2 reroot3 reroot4 > likelihoods_table
+    python write_consel_file_p3.py reroot1 reroot2 reroot3 reroot4 reroot5 > likelihoods_table
     mv likelihoods_table likelihoods_table.mt
     makermt likelihoods_table.mt
     consel likelihoods_table
