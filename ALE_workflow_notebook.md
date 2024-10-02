@@ -157,19 +157,19 @@ After completing this run, several things need to be done manually:
 
 1. Downloading the  ./concatenated_alignment_NoSupport.treefile to .\Exp_EvolutionaryAdaptation\cluster_results\<order>. Naming it as **iqtree.txt**. And generating an unrooted tree figure by running [LY_generate_trees.py](https://github.com/Wednesdaysama/evolutionary_adaptation/blob/main/LY_generate_trees.py) on a local computer.
 
-2. Uploading the generated UnrootedTree_WithNames.txt file to [ITOL](https://itol.embl.de/upload.cgi) to make rerooted phylogenetic trees.
+2. Uploading the **iqtree.txt** to [ITOL](https://itol.embl.de/upload.cgi) to make rerooted phylogenetic trees.
 
-   GTDB phylogenetic tree should be taken into account. 
+   GTDB phylogenetic tree should be taken into account.
 
-3. Exporting the rerooted trees in Newick format. Exclude the internal node IDs. 
+4. Exporting the rerooted trees in Newick format. Exclude the internal node IDs. Recording the root positions.
 
-4. Naming the rerooted trees as **reroot1**, **reroot2**, etc.
+5. Naming the rerooted trees as **reroot1**, **reroot2**, etc.
 
-5. Saving the reroot1.txt, reroot2.txt... files to .\Exp_EvolutionaryAdaptation\cluster_results\<order>.
+6. Saving the reroot1.txt, reroot2.txt... files to .\Exp_EvolutionaryAdaptation\cluster_results\<order>.
    
-6. Running [LY_species_tree_name_modify.py](https://github.com/Wednesdaysama/evolutionary_adaptation/blob/main/LY_species_tree_name_modify.py) on local computer.
+7. Running [LY_species_tree_name_modify.py](https://github.com/Wednesdaysama/evolutionary_adaptation/blob/main/LY_species_tree_name_modify.py) on local computer.
 
-7. Uploading all generated files, including *.newick, roots_to_test.txt and species_list_demo.txt files to ./<clade order>/fna/comparative_genomics/clusters.cds.faa.align.
+8. Uploading all generated files, including *.newick, roots_to_test.txt and species_list_demo.txt files to ./<clade order>/fna/comparative_genomics/clusters.cds.faa.align.
 
 
 
