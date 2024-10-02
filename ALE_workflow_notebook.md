@@ -246,20 +246,28 @@ Make sure to change the actual clade orders!
     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
     pwd; hostname; date
 
-    # should change 3 places on the following command lines
+    # should change 1 place on the following command lines
 
-    cd /work/ebg_lab/eb/Lianchun/19/fna/comparative_genomics/clusters.cds.faa.align/reroot1
+    cd /work/ebg_lab/eb/Lianchun/19
 
-    singularity exec --bind /work/ebg_lab/eb/Lianchun/19/fna/comparative_genomics/clusters.cds.faa.align/reroot1:/work/ebg_lab/eb/Lianchun/19/fna/comparative_genomics/clusters.cds.faa.align/reroot1 /work/ebg_lab/software/ale bash -c 'for file in *.ale; do ALEml_undated reroot1.newick "$file" separators="."; done'
+    bash -c 'for file in ./fna/comparative_genomics/clusters.cds.faa.align/reroot1/*.ale; do ALEml_undated ./fna/comparative_genomics/clusters.cds.faa.align/reroot1.newick "$file" separators="."; done'
+
 
 
 ## 7 Interpretation of ALE results
 ### 7.1 choose rerooted species tree. 
-Go to /work/.../<clade order>/fna/comparative_genomics/clusters.cds.faa.align/reroot* directory, run:
+Go to /work/.../<clade order>/fna/comparative_genomics/clusters.cds.faa.align/ directory, run:
 
-    rename root1 root *
+    cd reroot1
+    rename reroot1 root *
+    cd ../reroot2
+    rename reroot2 root *
+    cd ../reroot3
+    rename reroot3 root *    
+    cd ../reroot4
+    rename reroot4 root *
 
-This will replace root1 with root in all filenames containing root1 in the current directory.
+This will replace root1 with root in all filenames containing root1/2/3/4 in the reroot1/2/3/4 subdirectories.
 
 Then, run:
 
