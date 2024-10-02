@@ -155,15 +155,17 @@ Check the log file of tree_of_mags. Compare it to the real genome count.
 
 After completing this run, several things need to be done manually:
 
-1. Uploading the ./concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make rerooted phylogenetic trees. 
+1. Uploading the ./concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make rerooted phylogenetic trees.
 
-2. Exporting the rerooted trees in Newick format. Exclude the internal node IDs. 
+   GTDB phylogenetic tree should be taken into account. 
 
-3. Naming the rerooted trees as **reroot1**, **reroot2**, etc.
+3. Exporting the rerooted trees in Newick format. Exclude the internal node IDs. 
 
-4. Saving the reroot1.txt, reroot2.txt... files to .\Exp_EvolutionaryAdaptation\cluster_results\<order>.
+4. Naming the rerooted trees as **reroot1**, **reroot2**, etc.
+
+5. Saving the reroot1.txt, reroot2.txt... files to .\Exp_EvolutionaryAdaptation\cluster_results\<order>.
    
-5. Running [LY_species_tree_name_modify.py](https://github.com/Wednesdaysama/evolutionary_adaptation/blob/main/LY_species_tree_name_modify.py) on local computer.
+6. Running [LY_species_tree_name_modify.py](https://github.com/Wednesdaysama/evolutionary_adaptation/blob/main/LY_species_tree_name_modify.py) on local computer.
 
 7. Uploading all generated files, including *.newick, roots_to_test.txt and species_list_demo.txt files to ./<clade order>/fna/comparative_genomics/clusters.cds.faa.align.
 
