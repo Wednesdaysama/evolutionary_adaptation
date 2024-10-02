@@ -155,7 +155,9 @@ Check the log file of tree_of_mags. Compare it to the real genome count.
 
 After completing this run, several things need to be done manually:
 
-1. Uploading the ./concatenated_alignment.treefile to [ITOL](https://itol.embl.de/upload.cgi) to make rerooted phylogenetic trees.
+1. Downloading the  ./concatenated_alignment_NoSupport.treefile to .\Exp_EvolutionaryAdaptation\cluster_results\<order>. Naming it as **iqtree.txt**. And generating an unrooted tree figure by running [LY_generate_trees.py](https://github.com/Wednesdaysama/evolutionary_adaptation/blob/main/LY_generate_trees.py) on a local computer.
+
+2. Uploading the generated UnrootedTree_WithNames.txt file to [ITOL](https://itol.embl.de/upload.cgi) to make rerooted phylogenetic trees.
 
    GTDB phylogenetic tree should be taken into account. 
 
@@ -169,7 +171,7 @@ After completing this run, several things need to be done manually:
 
 7. Uploading all generated files, including *.newick, roots_to_test.txt and species_list_demo.txt files to ./<clade order>/fna/comparative_genomics/clusters.cds.faa.align.
 
-8. Downloading the  ./concatenated_alignment.treefile to .\Exp_EvolutionaryAdaptation\cluster_results\<order>. And generating unrooted tree figure by running [LY_generate_trees.py](https://github.com/Wednesdaysama/evolutionary_adaptation/blob/main/LY_generate_trees.py) on local computer.
+
 
 
 ## 4 Create ultrafast bootstrap gene tree distributions
