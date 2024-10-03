@@ -292,6 +292,8 @@ Then, run:
     makermt likelihoods_table.mt
     consel likelihoods_table
     catpv likelihoods_table > au_test_out 
+    less au_test_out
+    
 
 The root1 and root2 are directory names, which containing the .uml_rec files. Open the au_test_out file and accept the rerooted tree with au(*P*) > 0.05.
     
