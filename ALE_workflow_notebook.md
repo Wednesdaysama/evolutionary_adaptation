@@ -302,13 +302,13 @@ Download the above script in the same directory as write_consel_file_p3.py (dire
 
     source ~/bio/bin/python-env/bin/activate
     cp ~/DTL_ratio_analysis_ML_diff_Fan.py ./
-    python DTL_ratio_analysis_ML_diff_Fan.py reroot2 S
-    python DTL_ratio_analysis_ML_diff_Fan.py reroot2 D
-    python DTL_ratio_analysis_ML_diff_Fan.py reroot2 T
-    python DTL_ratio_analysis_ML_diff_Fan.py reroot2 L
-    python DTL_ratio_analysis_ML_diff_Fan.py reroot2 LS
-    python DTL_ratio_analysis_ML_diff_Fan.py reroot2 TS
-    python DTL_ratio_analysis_ML_diff_Fan.py reroot2 DS
+    python DTL_ratio_analysis_ML_diff_Fan.py reroot5 S
+    python DTL_ratio_analysis_ML_diff_Fan.py reroot5 D
+    python DTL_ratio_analysis_ML_diff_Fan.py reroot5 T
+    python DTL_ratio_analysis_ML_diff_Fan.py reroot5 L
+    python DTL_ratio_analysis_ML_diff_Fan.py reroot5 LS
+    python DTL_ratio_analysis_ML_diff_Fan.py reroot5 TS
+    python DTL_ratio_analysis_ML_diff_Fan.py reroot5 DS
     
 ### 7.3 Gene content evolution on the most likely rooted species tree
 Go to the **best reroot directory** and run [branchwise_numbers_of_events.py](https://github.com/ak-andromeda/ALE_methods/blob/main/branchwise_number_of_events.py) below. Check the internal node orders. Remember the first and last internal node orders. If the number of internal nodes (branch nodes) are from 16-30, 16 and 30 should be the first and last internal node orders. In the same reroot directory, run [Ancestral_reconstruction_VK.py](https://github.com/vmkhot/Comparative-Genomics-Verruco/blob/master/ancestral_trial/ancestral_modified_VK.py).
