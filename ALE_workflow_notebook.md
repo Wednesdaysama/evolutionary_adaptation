@@ -335,5 +335,5 @@ move files
     mv group9/roots_to_test.txt ./
     mv group9/species_list_demo.txt ./
     mv group9/allocate_faa.sh ./
-    
+    pwd
 
