@@ -125,6 +125,8 @@ Compress and decompress
 
 </details>
 
+<details>
+<summary>
 
 ## 3 Make species tree for one clade
 Submitting the **species_tree.slurm** file below to ARC: (CPU efficiency: 100%, Memory efficiency: 0.1%). 
@@ -179,7 +181,7 @@ Local:
 
 8. Uploading all generated files, including *.newick, roots_to_test.txt and species_list_demo.txt files to ./<clade order>/fna/comparative_genomics/clusters.cds.faa.align.
 
-
+</details>
 
 
 ## 4 Create ultrafast bootstrap gene tree distributions
