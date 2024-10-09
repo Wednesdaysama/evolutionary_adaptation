@@ -326,3 +326,7 @@ Remember the internal node numbers.
     
 In this case, 0.5 is that 50% of the family's copies exist on the corresponding node. 16 and 30 refer to the number of the first and last internal node. The internal nodes are shown in .uml_rec files.
 
+    cp /work/ebg_lab/eb/Lianchun/1/fna/comparative_genomics/clusters.cds.faa.align/allocate_faa.sh ./
+    bash allocate_faa.sh
+
+
