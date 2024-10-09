@@ -128,7 +128,7 @@ Compress and decompress
 <details>
 <summary>
 
-## 3 Make species tree for one clade
+## 3 Make species tree for one clade</summary>
 Submitting the **species_tree.slurm** file below to ARC: (CPU efficiency: 100%, Memory efficiency: 0.1%). 
 
 Remember to change the **-nt** value accordingly.
