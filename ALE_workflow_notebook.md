@@ -116,7 +116,7 @@ This command can generate multiply sequence alignment in the directory of /bio/d
     #SBATCH --partition=cpu2021
     pwd; hostname; date
 
-    \time  singularity exec --bind /work/ebg_lab/referenceDatabases/metaerg_db_V214:/databases --bind /home/lianchun.yi1/cluster_data/1/fna:/data --writable /work/ebg_lab/software/metaerg-v2.5.2/sandbox_metaerg_2.5.6/ metaerg --database_dir /databases --contig_file /data --file_extension .fna --mode comparative_genomics 
+    \time  singularity exec --bind /work/ebg_lab/referenceDatabases/metaerg_db_V214:/databases --bind /home/lianchun.yi1/cluster_data/1/fna:/data --writable /work/ebg_lab/software/metaerg-v2.5.2/sandbox_metaerg_2.5.8/ metaerg --database_dir /databases --contig_file /data --file_extension .fna --mode comparative_genomics 
 
 Compress and decompress
 
