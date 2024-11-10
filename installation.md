@@ -154,9 +154,11 @@ Run ale:
     export PATH=$PATH:/home/lianchun.yi1/software/consel/bin   #add this to this file and save it
     source ~/.bashrc
 
+### [Sourmash](https://github.com/sourmash-bio/sourmash)
 
-    
-    
+    mamba create -n sourmash_env -c conda-forge sourmash-minimal
+    mamba activate sourmash_env
+    sourmash --help
 
     
     
