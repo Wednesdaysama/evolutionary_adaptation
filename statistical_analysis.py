@@ -1,3 +1,14 @@
+'''
+requirement:
+    1. alkaline_node_list;
+    2. Events_at_all_nodes.csv;
+    3. homologues.tsv.
+Notice:
+    1. For the Fisher test, when infinity is detected, the odds ratio returns 100;
+    2. For Poisson regression, when perfect separation happens, the odds ratio returns 0.5 or 20,
+                                                                P-value retruns 0.00001.
+'''
+
 import os
 import re
 import pandas as pd
