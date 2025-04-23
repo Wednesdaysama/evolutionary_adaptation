@@ -8,7 +8,6 @@ Notice:
     2. For Poisson regression, when perfect separation happens, the odds ratio returns 0.5 or 20,
                                                                 P-value retruns 0.00001.
 '''
-
 import os
 import re
 import pandas as pd
@@ -18,11 +17,16 @@ import statsmodels.api as sm
 from statsmodels.tools.sm_exceptions import PerfectSeparationError
 import plotly.express as px
 from collections import defaultdict
+import sys
 
-seq_id = 0.5
+seq_id = float(sys.argv[1])
 
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+work_dir = os.path.dirname(os.path.abspath(__file__))
 
+#work_dir = r'D:\OneDrive - University of Calgary\Exp_EvolutionaryAdaptation\statistical_analysis\copies'
+os.chdir(work_dir)
+
+print('Processing category_dict dictionary.')
 environment = pd.read_excel('environment.xlsx', usecols=['accession_number', 'category'])
 category_dict = dict(zip(environment['accession_number'],
                          environment['category'].apply(lambda x: 'alkaline' if x == 'alkaline' else 'not_alkaline')))
@@ -83,6 +87,7 @@ for root, _, _ in os.walk(work_dir):
 
         if file_count % 5 == 0:
             print(f'Reading "Events_at_all_nodes_above_0.csv" files, read {file_count}/{total_files} files.')
+
 copies = pd.concat(copies, ignore_index=True)
 copies['Copies'] = copies['Copies'].astype(float)
 copies.to_csv(os.path.join(work_dir, 'copies.csv'), index=True)
@@ -97,22 +102,25 @@ def modify_index(index):
 
 print('Processing gene_matrix...')
 
+
 unique_nodes = copies['Node'].drop_duplicates().tolist()
 gene_matrix = pd.DataFrame(index=unique_nodes)
-gene_matrix.index.name = 'Node' 
+gene_matrix.index.name = 'Node'  
+
 set_ids = [k for k,v in set_dict.items() if v]
 chunk_size = 1000  
-
 all_gene_chunks = []
 all_binary_chunk = []
 for i in range(0, len(set_ids), chunk_size):
     print(f"Processing chunk {i // chunk_size + 1}/{(len(set_ids) - 1) // chunk_size + 1}")
+
     chunk_set_ids = set_ids[i:i + chunk_size]
     chunk_matrix = pd.DataFrame(
         index=unique_nodes,
         columns=chunk_set_ids,
         dtype=np.float32
     )
+
 
     for set_id in chunk_set_ids:
         target_ids = set_dict[set_id]
@@ -127,11 +135,13 @@ for i in range(0, len(set_ids), chunk_size):
                 matched.groupby('Node')['Copies'].first()
             )
 
-    # Processing "E"
+
     chunk_matrix_np = chunk_matrix.to_numpy()
     row_indices = {node: i for i, node in enumerate(chunk_matrix.index)}
+
     for set_idx, set_id in enumerate(chunk_matrix.columns):
         filled_mask = ~pd.isna(chunk_matrix_np[:, set_idx])
+
         for subfolder, nodes in subfolder_to_nodes.items():
             valid_nodes = [row_indices[n] for n in nodes if n in row_indices]
             if not valid_nodes:
@@ -153,29 +163,25 @@ for i in range(0, len(set_ids), chunk_size):
     chunk_matrix.index = chunk_matrix.index.map(modify_index)
     binary_chunk_matrix = chunk_matrix
     for col in binary_chunk_matrix.columns:
-        # - float > 0 → 1
-        # - float == 0 → 0
-        # - 'E' → keep 'E'
         binary_chunk_matrix[col] = binary_chunk_matrix[col].apply(
             lambda x: 1 if isinstance(x, (int, float)) and x > 0
             else (0 if isinstance(x, (int, float)) and x == 0
                   else x
                   ))
 
-    chunk_matrix.to_csv(f'gene_matrix_chunk_{i}.csv')
-    binary_chunk_matrix.to_csv(f'binary_chunk_matrix_{i}.csv')
+    #chunk_matrix.to_csv(f'gene_matrix_chunk_{i}.csv')
+    #binary_chunk_matrix.to_csv(f'binary_chunk_matrix_{i}.csv')
     all_gene_chunks.append(chunk_matrix)
     all_binary_chunk.append(binary_chunk_matrix)
 
 
-# 4. Merge all blocks
 try:
     gene_matrix = pd.concat(all_gene_chunks, axis=1)
     gene_matrix.to_csv(os.path.join(work_dir, f'gene_matrix_{seq_id}.csv'), index=True)
     binary_matrix = pd.concat(all_binary_chunk, axis=1)
     binary_matrix.to_csv(os.path.join(work_dir, f'binary_matrix_{seq_id}.csv'), index=True)
 except MemoryError:
-    print("There is not enough memory to merge all chunks. Please use a separate chunk file for analysis.")
+    print("MemoryError")
 print('gene_matrix.csv and binary_matrix.csv have been saved!')
 
 results = []
@@ -189,9 +195,8 @@ for gene_family in binary_matrix.columns:
     for idx, value in binary_matrix[gene_family].items():
         if value == "E":
             continue
-          
-        category = category_dict.get(idx)
 
+        category = category_dict.get(idx)
         if value == 0:
             if category == 'alkaline':
                 alkaline_absent += 1
@@ -257,22 +262,18 @@ print('Fisher test done!')
 
 results = []
 for gene_family in gene_matrix.columns:
-
-    # Filtering out lines containing ‘E’ or NaN
     temp = gene_matrix[[gene_family]].loc[
         ~gene_matrix[gene_family].isin(['E'])].astype(float)
 
     if temp.empty:
         continue
-      
+
     temp['y'] = temp.index.map(lambda idx: 1 if category_dict.get(idx) == 'alkaline' else 0)
 
-    # Set the independent variable X and add the intercept term
     X = sm.add_constant(temp[[gene_family]])
     y = temp['y']
 
     try:
-        # Fitting a Poisson regression model
         poisson_family = sm.families.Poisson(link=sm.families.links.log())
         poisson_model = sm.GLM(y, X, family=poisson_family).fit()
 
@@ -280,30 +281,29 @@ for gene_family in gene_matrix.columns:
             'GeneFamily': gene_family,
             'OddsRatio': np.exp(poisson_model.params[gene_family]),
             'PValue': poisson_model.pvalues[gene_family],
+            'PerfectSeparation': False
         })
 
     except PerfectSeparationError:
         print(f"Perfect separation detected for {gene_family}.")
 
-        # processing perfect separation error
         if X[y == 1][gene_family].mean() > X[y == 0][gene_family].mean():
             odds_ratio = 20.0
+            p_value = 0.00001
         else:
             odds_ratio = 0.5
+            p_value = 1.0
 
         results.append({
             'GeneFamily': gene_family,
             'OddsRatio': odds_ratio,
-            'PValue': 0.00001,
+            'PValue': p_value,
             'PerfectSeparation': True
         })
 
     except ValueError as e:
         print(f"Skipping {gene_family} due to error: {e}")
-        continue
 
-        results.append(
-            {'GeneFamily': gene_family, 'OddsRatio': odds_ratio, 'PValue': 0.00001})
 
 # Display the results
 results_df_pois = pd.DataFrame(results)
@@ -325,6 +325,9 @@ results_df_pois_filt = results_df_pois.loc[(results_df_pois['OddsRatio'] < 50) &
 
 results_df_pois.to_csv(f'poisson_results_{seq_id}.csv',index = False)
 print('poisson_results_{seq_id}.csv has been saved!')
+
+
+results_df_pois = results_df_pois[results_df_pois['OddsRatio'] < 21].copy()
 
 fig = px.scatter(results_df_pois, x='OddsRatio', y='-log10(padj)', color='Significance',
     color_discrete_map={'Significant': 'red', 'Not Significant': 'blue'},
@@ -351,3 +354,4 @@ df_test_merged.rename(columns={'Lookup_Mapping': 'Annotations'}, inplace=True)
 df_test_merged.drop(columns=['Set_ID'], inplace=True)
 df_test_merged.to_csv(f'statistical_analysis_{seq_id}.csv', index = False)
 print('All done!')
+
