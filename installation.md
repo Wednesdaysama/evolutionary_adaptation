@@ -160,6 +160,9 @@ Run ale:
     mamba activate sourmash_env
     sourmash --help
 
+### [blast]
+
+    mamba install -c bioconda blast
     
     
     
