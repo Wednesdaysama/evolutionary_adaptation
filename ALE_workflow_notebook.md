@@ -244,7 +244,7 @@ Go to /work/.../<clade order>/fna/comparative_genomics/clusters.cds.faa.align/
     cp -r reroot1 reroot5
 
 
-Submitting the following **xargs_reconcile_tree_*.slurm** file to arc: (CPU efficiency: 33%, Memory efficiency: 0.2%)
+Submitting the following **reconcile_tree_*.slurm** file to arc: (CPU efficiency: 33%, Memory efficiency: 0.2%)
 
 Make sure to change the actual clade orders!
 
@@ -289,7 +289,7 @@ Then, run:
 
     cd ..
     cp ~/write_consel_file_p3.py ./
-    python write_consel_file_p3.py reroot1 reroot2 reroot3 reroot4 reroot5 > likelihoods_table
+    python write_consel_file_p3.py reroot1 reroot2 reroot3 reroot4 > likelihoods_table
     mv likelihoods_table likelihoods_table.mt
     makermt likelihoods_table.mt
     consel likelihoods_table
