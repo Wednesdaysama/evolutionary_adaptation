@@ -19,5 +19,5 @@ bootstrap_gene_tree.slurm
 
      find ./*seq.aln.faa | xargs -n 1 -P 7 -I {} iqtree2 -s {} -m MFP -madd LG+C20,LG+C60 -B 10000 -wbtl -nt 16
 
-     
+Output files will end with *.faa.ufboot
 
