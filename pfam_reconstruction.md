@@ -1,6 +1,8 @@
 #### Collecting data
      cp *_seq.unique.faa ~/data/pfam_reconstruction
-#### bootstrap_gene_tree.slurm
+#### Create ultrafast bootstrap gene tree distributions
+bootstrap_gene_tree.slurm
+
      #!/bin/bash
      #SBATCH --job-name=BootstrapGeneTree
      #SBATCH --output=%x.log
