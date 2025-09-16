@@ -1,5 +1,5 @@
 #### Collecting data
-     cp *_seq.unique.faa ~/data/pfam_reconstruction
+     cp *_seq.aln.faa ~/data/pfam_reconstruction
 #### Create ultrafast bootstrap gene tree distributions
 bootstrap_gene_tree.slurm
 
@@ -17,7 +17,7 @@ bootstrap_gene_tree.slurm
 
      cd ~/data/pfam_reconstruction
 
-     find ./*.faa | xargs -n 1 -P 7 -I {} iqtree2 -s {} -m MFP -madd LG+C20,LG+C60 -B 10000 -wbtl -nt 16
+     find ./*seq.aln.faa | xargs -n 1 -P 7 -I {} iqtree2 -s {} -m MFP -madd LG+C20,LG+C60 -B 10000 -wbtl -nt 16
 
      
 
