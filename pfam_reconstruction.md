@@ -1,5 +1,5 @@
 #### Collecting data
-     cp *_seq.aln.faa ~/data/pfam_reconstruction
+     cp /work/ebg_lab/eb/ancestral_reconstruction/pf_seq/*_seq.aln.faa ~/data/pfam_reconstruction
 #### Create ultrafast bootstrap gene tree distributions
 bootstrap_gene_tree.slurm
 
