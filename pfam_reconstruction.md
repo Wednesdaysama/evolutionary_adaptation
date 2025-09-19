@@ -10,7 +10,7 @@ bootstrap_gene_tree.slurm
      #SBATCH --ntasks=1
      #SBATCH --cpus-per-task=32
      #SBATCH --mem=100GB
-     #SBATCH --time=100:00:00
+     #SBATCH --time=100:00:00                      # speed: 12~24 hours/file
      #SBATCH --mail-user=lianchun.yi1@ucalgary.ca
      #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
      pwd; hostname; date
