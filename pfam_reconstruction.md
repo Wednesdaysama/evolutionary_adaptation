@@ -1,6 +1,6 @@
-#### Collecting data
+### Collecting data
      cp /work/ebg_lab/eb/ancestral_reconstruction/pf_seq/*_seq.aln.faa ~/data/pfam_reconstruction
-#### Create ultrafast bootstrap gene tree distributions
+### Create ultrafast bootstrap gene tree distributions
 bootstrap_gene_tree.slurm
 
      #!/bin/bash
