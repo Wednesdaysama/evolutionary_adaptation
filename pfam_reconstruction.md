@@ -19,7 +19,7 @@ bootstrap_gene_tree.slurm
 
      find ./*seq.aln.faa | xargs -n 1 -P 2 -I {} iqtree2 -s {} -m MFP -madd LG+C20,LG+C60 -B 1000 -wbtl -nt 32
 
-Output files will end with *.faa.ufboot
+Output files will end with *.faa.ufboot.
 ### Create ale objects
 create_ale_objects.slurm
 
@@ -38,4 +38,4 @@ create_ale_objects.slurm
      cd /home/lianchun.yi1/data/pfam_reconstruction/PF04066
      find ./*.ufboot | xargs -n 1 -P 2 -I {} ALEobserve {}
 
-Output files will end with *.ale
+Output files will end with *.ale.
