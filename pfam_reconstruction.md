@@ -20,4 +20,22 @@ bootstrap_gene_tree.slurm
      find ./*seq.aln.faa | xargs -n 1 -P 2 -I {} iqtree2 -s {} -m MFP -madd LG+C20,LG+C60 -B 1000 -wbtl -nt 32
 
 Output files will end with *.faa.ufboot
+### Create ale objects
+create_ale_objects.slurm
 
+     #!/bin/bash
+     #SBATCH --job-name=PF04066_CreateObjects
+     #SBATCH --output=%x.log
+     #SBATCH --nodes=1
+     #SBATCH --ntasks=1
+     #SBATCH --cpus-per-task=16
+     #SBATCH --mem=64G
+     #SBATCH --time=01:00:00                       # speed 2 min/file
+     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca
+     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
+     pwd; hostname; date
+
+     cd /home/lianchun.yi1/data/pfam_reconstruction/PF04066
+     find ./*.ufboot | xargs -n 1 -P 2 -I {} ALEobserve {}
+
+Output files will end with *.ale
