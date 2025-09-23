@@ -41,3 +41,23 @@ create_ale_objects.slurm
      find ./*.ufboot | xargs -n 1 -P 2 -I {} ALEobserve {}
 
 Output files will end with *.ale.
+
+### Gene tree and species tree reconciliation
+reconcile_tree.slurm
+
+     #!/bin/bash
+     #SBATCH --job-name=RT_ATPase
+     #SBATCH --output=%x.log
+     #SBATCH --nodes=1
+     #SBATCH --ntasks=1
+     #SBATCH --cpus-per-task=16
+     #SBATCH --mem=100G
+     #SBATCH --time=70:00:00
+     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca
+     #SBATCH --mail-type=END                       # Send the type: <BEGIN><FAIL><END>
+     pwd; hostname; date
+     
+     cd /home/lianchun.yi1/data/pfam_reconstruction/PF00122
+
+     bash -c 'for file in ./*.ale; do ALEml_undated ../bac120_r214.tree.with_missing_leaves.tree.clean "$file" separators="."; done'
+
