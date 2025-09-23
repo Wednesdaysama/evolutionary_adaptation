@@ -1,5 +1,7 @@
 ### Collecting data
      cp /work/ebg_lab/eb/ancestral_reconstruction/pf_seq/*_seq.aln.faa ~/data/pfam_reconstruction
+     python extract_alkaline_sequences.py ATPase # It only extracts protein sequences that are in the alkaline subclade of its Pfam tree. Output file will be named as ATPase.filtered.aln.faa.
+
 ### Create ultrafast bootstrap gene tree distributions
 bootstrap_gene_tree.slurm
 
@@ -10,14 +12,14 @@ bootstrap_gene_tree.slurm
      #SBATCH --ntasks=1
      #SBATCH --cpus-per-task=32
      #SBATCH --mem=100GB
-     #SBATCH --time=100:00:00                      # speed: 12~24 hours/file
+     #SBATCH --time=24:00:00                      # speed: 12~24 hours/file
      #SBATCH --mail-user=lianchun.yi1@ucalgary.ca
-     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
+     #SBATCH --mail-type=END                       # Send the type: <BEGIN><FAIL><END>
      pwd; hostname; date
 
      cd ~/data/pfam_reconstruction
 
-     find ./*seq.aln.faa | xargs -n 1 -P 2 -I {} iqtree2 -s {} -m MFP -madd LG+C20,LG+C60 -B 1000 -wbtl -nt 32 -redo
+     find ./*filtered.aln.faa | xargs -n 1 -P 2 -I {} iqtree2 -s {} -m MFP -madd LG+C20,LG+C60 -B 1000 -wbtl -nt 32 -redo
 
 Output files will end with *.faa.ufboot.
 ### Create ale objects
