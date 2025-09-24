@@ -51,10 +51,11 @@ reconcile_tree.slurm
      #SBATCH --nodes=1
      #SBATCH --ntasks=1
      #SBATCH --cpus-per-task=16
-     #SBATCH --mem=100G
-     #SBATCH --time=70:00:00
+     #SBATCH --partition=bigmem
+     #SBATCH --mem=1000G
+     #SBATCH --time=24:00:00
      #SBATCH --mail-user=lianchun.yi1@ucalgary.ca
-     #SBATCH --mail-type=END                       # Send the type: <BEGIN><FAIL><END>
+     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END><ALL>
      pwd; hostname; date
      
      cd /home/lianchun.yi1/data/pfam_reconstruction/PF00122
