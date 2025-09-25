@@ -50,7 +50,7 @@ reconcile_tree.slurm
      #SBATCH --output=%x.log
      #SBATCH --nodes=1
      #SBATCH --ntasks=1
-     #SBATCH --cpus-per-task=16
+     #SBATCH --cpus-per-task=2
      #SBATCH --partition=bigmem
      #SBATCH --mem=1000G
      #SBATCH --time=24:00:00
