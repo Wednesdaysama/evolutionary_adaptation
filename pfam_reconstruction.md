@@ -49,9 +49,9 @@ reconcile_tree.slurm
      #SBATCH --job-name=RT_ATPase
      #SBATCH --output=%x.log
      #SBATCH --nodes=1
-     #SBATCH --ntasks=1
-     #SBATCH --cpus-per-task=2
-     #SBATCH --partition=bigmem
+     #SBATCH --ntasks=8                             # CPU efficiency： 795.5% / 8 = 99%
+     #SBATCH --cpus-per-task=1
+     #SBATCH --partition=bigmem                
      #SBATCH --mem=1000G
      #SBATCH --time=24:00:00
      #SBATCH --mail-user=lianchun.yi1@ucalgary.ca
@@ -60,5 +60,5 @@ reconcile_tree.slurm
      
      cd /home/lianchun.yi1/data/pfam_reconstruction/PF00122
 
-     bash -c 'for file in ./*.ale; do ALEml_undated ../bac120_r214.tree.with_missing_leaves.tree.clean "$file" separators="."; done'
+     mpirun -np 8 ALEml_undated ../bac120_r214.tree.with_missing_leaves.tree.clean ./ATPase.filtered.aln.faa.ufboot.ale separators="."
 
