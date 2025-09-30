@@ -1,9 +1,8 @@
 ### Launch an interactive session on ARC:
-     salloc --mem=20G -c 16 -N 1 -n 1  -t 04:00:00
+     salloc --mem=20G -c 8 -N 1 -n 1  -t 04:00:00
 ### Collecting data
      cp /work/ebg_lab/eb/ancestral_reconstruction/pf_seq/*_seq.aln.faa ~/data/pfam_reconstruction
      python extract_alkaline_sequences.py ATPase # It only extracts protein sequences that are in the alkaline subclade of its Pfam tree. Output file will be named as ATPase.filtered.aln.faa.
-
 ### Create ultrafast bootstrap gene tree distributions
 bootstrap_gene_tree.slurm
 
@@ -43,7 +42,6 @@ create_ale_objects.slurm
      find ./*.ufboot | xargs -n 1 -P 2 -I {} ALEobserve {}
 
 Output files will end with *.ale.
-
 ### Gene tree and species tree reconciliation
 reconcile_tree.slurm
 
