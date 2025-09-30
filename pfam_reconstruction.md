@@ -5,13 +5,13 @@
 Upload the environment.xlsx file to /home/lianchun.yi1/data/pfam_reconstruction/PF00122/ale. And run:
 
      cd /home/lianchun.yi1/data/pfam_reconstruction/PF00122/ale
-     python collect_rooted_species_tree.py #This script copies the best rooted species tree from /work/...... to the working directory.
+     python collect_rooted_species_tree.py
+This script copies the best rooted species tree from /work/...... to the working directory.
 
-     cp /work/ebg_lab/eb/ancestral_reconstruction/pf_seq/PF00122_seq.aln.faa ./ # or run: cp ../*_seq.aln.faa ./
-     
-     python extract_subtree_sequences.py ATPase # It only extracts protein sequences that are in the alkaline subclade of its Pfam tree. Output files will be named as {subtree}.filtered.aln.faa.
+     cp ../*_seq.aln.faa ./ # or run: cp /work/ebg_lab/eb/ancestral_reconstruction/pf_seq/PF00122_seq.aln.faa ./ 
+     python extract_subtree_sequences.py ATPase 
+It only extracts protein sequences for each subtree that are in the alkaline subclade of its Pfam tree. Output files will be named as {subtree}.filtered.aln.faa.
 
-     
 ### Create ultrafast bootstrap gene tree distributions
 bootstrap_gene_tree.slurm
 
