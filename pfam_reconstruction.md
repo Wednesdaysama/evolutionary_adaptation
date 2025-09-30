@@ -3,6 +3,7 @@
 ### Collecting data
 #### Species trees
 Upload the environment.xlsx file to /home/lianchun.yi1/data/pfam_reconstruction/PF00122/ale. And run:
+
      python collect_rooted_species_tree.py
 This script copies the best rooted species trees from /work/...... to the working directory.
 
