@@ -1,6 +1,12 @@
 ### Launch an interactive session on ARC:
      salloc --mem=20G -c 8 -N 1 -n 1  -t 04:00:00
 ### Collecting data
+#### Species trees
+Upload the environment.xlsx file to /home/lianchun.yi1/data/pfam_reconstruction/PF00122/ale. And run:
+     python collect_rooted_species_tree.py
+This script copies the best rooted species trees from /work/...... to the working directory.
+
+
      cp /work/ebg_lab/eb/ancestral_reconstruction/pf_seq/*_seq.aln.faa ~/data/pfam_reconstruction
      python extract_alkaline_sequences.py ATPase # It only extracts protein sequences that are in the alkaline subclade of its Pfam tree. Output file will be named as ATPase.filtered.aln.faa.
 ### Create ultrafast bootstrap gene tree distributions
