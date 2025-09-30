@@ -29,9 +29,9 @@ bootstrap_gene_tree.slurm
      #SBATCH --mail-type=END                       # Send the type: <BEGIN><FAIL><END>
      pwd; hostname; date
 
-     cd ~/data/pfam_reconstruction
+     cd ~/data/pfam_reconstruction/PF00122/ale
 
-     find ./*filtered.aln.faa | xargs -n 1 -P 2 -I {} iqtree2 -s {} -m MFP -madd LG+C20,LG+C60 -B 1000 -wbtl -nt 32 -redo
+     find ./*filtered.aln.faa | xargs -n 1 -P 5 -I {} iqtree2 -s {} -m MFP -madd LG+C20,LG+C60 -B 5000 -wbtl -nt 32 -redo
 
 Output files will end with *.faa.ufboot.
 ### Create ale objects
