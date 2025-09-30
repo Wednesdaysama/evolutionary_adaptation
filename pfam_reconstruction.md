@@ -1,3 +1,5 @@
+### Launch an interactive session on ARC:
+     salloc --mem=20G -c 16 -N 1 -n 1  -t 04:00:00
 ### Collecting data
      cp /work/ebg_lab/eb/ancestral_reconstruction/pf_seq/*_seq.aln.faa ~/data/pfam_reconstruction
      python extract_alkaline_sequences.py ATPase # It only extracts protein sequences that are in the alkaline subclade of its Pfam tree. Output file will be named as ATPase.filtered.aln.faa.
