@@ -23,15 +23,15 @@ bootstrap_gene_tree.slurm
      #SBATCH --nodes=1
      #SBATCH --ntasks=1
      #SBATCH --cpus-per-task=32
-     #SBATCH --mem=100GB
-     #SBATCH --time=24:00:00                      # speed: 12~24 hours/file
+     #SBATCH --mem=50GB
+     #SBATCH --time=48:00:00                      # speed: 23 files per day
      #SBATCH --mail-user=lianchun.yi1@ucalgary.ca
      #SBATCH --mail-type=END                       # Send the type: <BEGIN><FAIL><END>
      pwd; hostname; date
 
      cd ~/data/pfam_reconstruction/PF00122/ale
 
-     find ./*filtered.aln.faa | xargs -n 1 -P 5 -I {} iqtree2 -s {} -m MFP -madd LG+C20,LG+C60 -B 5000 -wbtl -nt 32 -redo
+     find ./*filtered.aln.faa | xargs -n 1 -P 5 -I {} iqtree2 -s {} -m MFP -madd LG+C20,LG+C60 -B 5000 -wbtl -nt 32
 
 Output files will end with *.faa.ufboot.
 ### Create ale objects
