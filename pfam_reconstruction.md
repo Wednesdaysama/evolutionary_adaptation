@@ -8,6 +8,7 @@ Upload the environment.xlsx file to /home/lianchun.yi1/data/pfam_reconstruction/
      python collect_rooted_species_tree.py
 This script copies the best rooted species tree from /work/...... to the working directory. 
 Copied files will be named as {subtree}_BestRoot.newick.
+#### multiple sequences aligned genes
 Upload a txt file that contains the leaf IDs of the alkaline subcalde. Then run:
 
      cp ../*_seq.aln.faa ./ # or run: cp /work/ebg_lab/eb/ancestral_reconstruction/pf_seq/PF00122_seq.aln.faa ./ 
