@@ -39,7 +39,7 @@ NOTE: PF00122 is not present in subtrees 22 and 23_24. There are only 3 sequence
 create_ale_objects.slurm
 
      #!/bin/bash
-     #SBATCH --job-name=PF04066_CreateObjects
+     #SBATCH --job-name=ATPase_AO
      #SBATCH --output=%x.log
      #SBATCH --nodes=1
      #SBATCH --ntasks=1
