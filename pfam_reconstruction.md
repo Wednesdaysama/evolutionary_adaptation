@@ -44,8 +44,8 @@ create_ale_objects.slurm
      #SBATCH --nodes=1
      #SBATCH --ntasks=1
      #SBATCH --cpus-per-task=1
-     #SBATCH --mem=64G
-     #SBATCH --time=24:00:00                       # speed 2 min/file
+     #SBATCH --mem=30G
+     #SBATCH --time=30:00:00                       # speed 2 min/file
      #SBATCH --mail-user=lianchun.yi1@ucalgary.ca
      #SBATCH --mail-type=END                       # Send the type: <BEGIN><FAIL><END>
      pwd; hostname; date
