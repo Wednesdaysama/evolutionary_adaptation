@@ -18,13 +18,13 @@ It only extracts protein sequences for each subtree that are in the alkaline sub
 bootstrap_gene_tree.slurm
 
      #!/bin/bash
-     #SBATCH --job-name=BootstrapGeneTree
+     #SBATCH --job-name=ATPase_BS
      #SBATCH --output=%x.log
      #SBATCH --nodes=1
      #SBATCH --ntasks=1
      #SBATCH --cpus-per-task=32
      #SBATCH --mem=50GB
-     #SBATCH --time=48:00:00                      # speed: 23 files per day
+     #SBATCH --time=100:00:00                      # speed: 23 files per day
      #SBATCH --mail-user=lianchun.yi1@ucalgary.ca
      #SBATCH --mail-type=END                       # Send the type: <BEGIN><FAIL><END>
      pwd; hostname; date
@@ -33,7 +33,8 @@ bootstrap_gene_tree.slurm
 
      find ./*filtered.aln.faa | xargs -n 1 -P 5 -I {} iqtree2 -s {} -m MFP -madd LG+C20,LG+C60 -B 5000 -wbtl -nt 32
 
-Output files will end with *.faa.ufboot.
+Output files will end with *.faa.ufboot. 
+NOTE: PF00122 is not present in subtrees 22 and 23_24. There are only 3 sequences in 16_filtered.aln.faa. It makes no sense to perform bootstrap with less than 4 sequences.
 ### Create ale objects
 create_ale_objects.slurm
 
