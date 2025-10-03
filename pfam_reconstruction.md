@@ -112,6 +112,7 @@ As the trees above are already rooted and have passed the robustness check. Here
      cp ~/ancestral_modified_VK.py ./
      cp ~/branchwise_number_of_events.py ./
      python branchwise_number_of_events.py > dtloc.tsv
-     
+     awk -F'\t' '$1 !~ /^[A-Za-z]/ {print $1}' dtloc.tsv sort -n awk 'NR==1{min=$1} {max=$1} END{print "python ancestral_modified_VK.py 0.5 " min " " max}'
+
 
 
