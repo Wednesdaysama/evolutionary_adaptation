@@ -96,7 +96,7 @@ reconcile_tree.slurm
      #SBATCH --ntasks=16
      #SBATCH --cpus-per-task=1             
      #SBATCH --mem=500G
-     #SBATCH --time=100:00:00                       # running time: testing...             
+     #SBATCH --time=24:00:00                       # running time: 3 hours
      #SBATCH --mail-user=lianchun.yi1@ucalgary.ca
      #SBATCH --mail-type=END                       # Send the type: <BEGIN><FAIL><END><ALL>
      pwd; hostname; date
