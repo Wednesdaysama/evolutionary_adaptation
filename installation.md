@@ -163,6 +163,23 @@ Run ale:
 ### [blast]
 
     mamba install -c bioconda blast
-    
+
+### [GeneRax](https://github.com/BenoitMorel/GeneRax?tab=readme-ov-file)
+
+    cd ~
+    module load bioconda/2024-10
+    conda create -n generax_env # This env has been created in /home/lianchun.yi1/.conda/envs/generax_env
+    conda activate generax_env
+    conda install bioconda::generax
+    salloc --mem=20G -c 1 -N 1 -n 2  -t 04:00:00
+    module load openmpi/4.0.2-gnu730
+    mpirun -np 2 generax -h
+
+When running GenRax:
+
+    salloc --mem=20G -c 1 -N 1 -n 2  -t 04:00:00
+    conda activate generax_env
+    module load openmpi/4.0.2-gnu730
+    mpirun -np 2 generax -h
     
     
