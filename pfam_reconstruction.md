@@ -116,6 +116,10 @@ As the trees above are already rooted and have passed the robustness check. Here
     cp ~/history_ale.py ./
     python history_ale.py ATPase
 
+print the originatation event that happened at which node
+
+    awk -F',' 'NR>1 && $6 > 0.5' Total_copies_at_node/Sum_of_DTLSC_at_each_node.csv
+
 
 
 
