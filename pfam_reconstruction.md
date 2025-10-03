@@ -104,3 +104,14 @@ reconcile_tree.slurm
      cd /home/lianchun.yi1/data/pfam_reconstruction/PF00122
 
      mpirun -np 16 ALEml_undated ../bac120_r214.tree.with_missing_leaves.tree.clean ./ATPase.filtered.aln.faa.ufboot.ale separators="."
+
+### Result interpretation
+As the trees above are already rooted and have passed the robustness check. Here, we can just interpret the results.
+
+     source ~/bio/bin/3.10_python-env/bin/activate
+     cp ~/ancestral_modified_VK.py ./
+     cp ~/branchwise_number_of_events.py ./
+     python branchwise_number_of_events.py > dtloc.tsv
+     
+
+
