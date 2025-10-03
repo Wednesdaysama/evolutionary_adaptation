@@ -112,6 +112,19 @@ As the trees above are already rooted and have passed the robustness check. Here
      cd /home/lianchun.yi1/data/pfam_reconstruction/PF00122/ale
      ./interpretation.sh ATPase
 For every lineage, this script plots a tree file that shows the evolutionary events within this lineage. It also produces a .treefile.
+
+##### Some useful commands
+Checking origination events across all lineages:
+
+     for dir in */; do
+         csv_file="$dir/Total_copies_at_node/Sum_of_DTLSC_at_each_node.csv"
+         if [ -f "$csv_file" ]; then
+             echo "Processing $csv_file"
+             awk -F',' 'NR>1 && $6 > 0.5' "$csv_file"
+         fi
+     done
+
+
 #### 2. Reconciling against the big tree
     source ~/bio/bin/3.10_python-env/bin/activate
     cp ~/ancestral_modified_VK.py ./
