@@ -107,7 +107,12 @@ reconcile_tree.slurm
 
 ### Result interpretation
 As the trees above are already rooted and have passed the robustness check. Here, we can just interpret the results.
+#### 1. Reconciling against 30 alkaline lineages
 
+     cd /home/lianchun.yi1/data/pfam_reconstruction/PF00122/ale
+     ./interpretation.sh ATPase
+For every lineage, this script plots a tree file that shows the evolutionary events within this lineage. It also produces a .treefile.
+#### 2. Reconciling against the big tree
     source ~/bio/bin/3.10_python-env/bin/activate
     cp ~/ancestral_modified_VK.py ./
     cp ~/branchwise_number_of_events.py ./
