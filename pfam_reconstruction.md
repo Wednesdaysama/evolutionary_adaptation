@@ -55,19 +55,19 @@ create_ale_objects.slurm
 
 Output files will end with *.ale.
 ### Gene tree and species tree reconciliation
-#### Reconciling against the big tree
+#### 1. Reconciling against the big tree
 This tree contains 2644 species.
 
 reconcile_tree.slurm
 
      #!/bin/bash
-     #SBATCH --job-name=RT_ATPase
+     #SBATCH --job-name=RT_ATPase_2644
      #SBATCH --output=%x.log
      #SBATCH --nodes=1
      #SBATCH --ntasks=16
      #SBATCH --cpus-per-task=1             
      #SBATCH --mem=500G
-     #SBATCH --time=04:00:00                       # 30 min                      
+     #SBATCH --time=100:00:00                       # running time:                   
      #SBATCH --mail-user=lianchun.yi1@ucalgary.ca
      #SBATCH --mail-type=END                       # Send the type: <BEGIN><FAIL><END><ALL>
      pwd; hostname; date
