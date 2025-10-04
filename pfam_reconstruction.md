@@ -140,7 +140,16 @@ print the originatation event that happened at which node
 
 
 ### Reconciling with [GeneRax](https://github.com/BenoitMorel/GeneRax)
-Prepare family file:
+#### Prepare mapping file:
+
+    grep "^>" ATPase.filtered.aln.faa \
+    | sed -E 's/^>([^ ]*).*/\1/' \
+    | awk -F'.' '{first=$1; sub(/^[^.]*\./,""); print first"\t"$0}' \
+    > mapping.link
+    
+#### Prepare family file:
+
+
 Remove internal node ID:
      perl -0777 -pe 's/\)\s*\d+(\.\d+)?\s*:/):/g' bac120_r214.tree.with_missing_leaves.tree.clean > removed_internal_nodeID.newick
 
