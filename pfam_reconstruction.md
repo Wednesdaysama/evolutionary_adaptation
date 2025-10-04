@@ -140,14 +140,22 @@ print the originatation event that happened at which node
 
 
 ### Reconciling with [GeneRax](https://github.com/BenoitMorel/GeneRax)
-#### Prepare mapping file:
+#### Prepare mapping file
 
     grep "^>" ATPase.filtered.aln.faa \
     | sed -E 's/^>([^ ]*).*/\1/' \
     | awk -F'.' '{first=$1; sub(/^[^.]*\./,""); print first"\t"$0}' \
     > mapping.link
     
-#### Prepare family file:
+#### Prepare family file
+
+    [FAMILIES]
+    - ATPase
+    alignment = /home/lianchun.yi1/data/pfam_reconstruction/PF00122/ATPase.filtered.aln.faa
+    starting_gene_tree = /home/lianchun.yi1/data/pfam_reconstruction/PF00122/ATPase.filtered.aln.faa.treefile
+    mapping = /home/lianchun.yi1/data/pfam_reconstruction/PF00122/mapping.link
+    subst_model = GTR+G
+
 
 
 Remove internal node ID:
