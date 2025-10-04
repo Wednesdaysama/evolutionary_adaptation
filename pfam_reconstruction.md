@@ -89,21 +89,21 @@ This tree contains 2644 species, which includes all *class* taxa in the GTDB Bac
 
 reconcile_tree.slurm
 
-     #!/bin/bash
-     #SBATCH --job-name=RT_ATPase_2644
-     #SBATCH --output=%x.log
-     #SBATCH --nodes=1
-     #SBATCH --ntasks=16
-     #SBATCH --cpus-per-task=1             
-     #SBATCH --mem=500G
-     #SBATCH --time=24:00:00                       # running time: 3 hours
-     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca
-     #SBATCH --mail-type=END                       # Send the type: <BEGIN><FAIL><END><ALL>
-     pwd; hostname; date
+    #!/bin/bash
+    #SBATCH --job-name=RT_ATPase_2644
+    #SBATCH --output=%x.log
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=16
+    #SBATCH --cpus-per-task=1             
+    #SBATCH --mem=500G
+    #SBATCH --time=24:00:00                       # running time: 3 hours
+    #SBATCH --mail-user=lianchun.yi1@ucalgary.ca
+    #SBATCH --mail-type=END                       # Send the type: <BEGIN><FAIL><END><ALL>
+    pwd; hostname; date
      
-     cd /home/lianchun.yi1/data/pfam_reconstruction/PF00122
+    cd /home/lianchun.yi1/data/pfam_reconstruction/PF00122
 
-     mpirun -np 16 ALEml_undated ../bac120_r214.tree.with_missing_leaves.tree.clean ./ATPase.filtered.aln.faa.ufboot.ale separators="."
+    mpirun -np 16 ALEml_undated ../bac120_r214.tree.with_missing_leaves.tree.clean ./ATPase.filtered.aln.faa.ufboot.ale separators="."
 
 ### Result interpretation
 As the trees above are already rooted and have passed the robustness check. Here, we can just interpret the results.
