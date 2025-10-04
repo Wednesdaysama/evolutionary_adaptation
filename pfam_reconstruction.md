@@ -139,5 +139,9 @@ print the originatation event that happened at which node
     awk -F',' 'NR>1 && $6 > 0.5' Total_copies_at_node/Sum_of_DTLSC_at_each_node.csv
 
 
+### Reconciling with [GeneRax](https://github.com/BenoitMorel/GeneRax)
+Prepare family file:
+Remove internal node ID:
+     perl -0777 -pe 's/\)\s*\d+(\.\d+)?\s*:/):/g' bac120_r214.tree.with_missing_leaves.tree.clean > removed_internal_nodeID.newick
 
 
