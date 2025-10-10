@@ -90,23 +90,25 @@ Constructing a species tree that contains 2644 species.
 treeOfMags_iqtree.slurm
 
     #!/bin/bash
-     #SBATCH --job-name=iqtree_2644
-     #SBATCH --output=%x.log 
-     #SBATCH --nodes=1            
-     #SBATCH --ntasks=1          
-     #SBATCH --cpus-per-task=64
-     #SBATCH --mem=500G           
-     #SBATCH --time=100:00:00       # tree_of_mags: 15 hours. Iqtree spends ... min
-     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  
-     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
-     pwd; hostname; date
+    #SBATCH --job-name=iqtree_2644
+    #SBATCH --ntasks=1          
+    #SBATCH --cpus-per-task=64
+    #SBATCH --mem=500G           
+    #SBATCH --time=100:00:00       # tree_of_mags: 15 hours. Iqtree spends ... min
+    #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  
+    #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
+    pwd; hostname; date
 
-     cd /home/lianchun.yi1/data/faa_all
+    cd /home/lianchun.yi1/data/faa_all
 
-     #tree_of_mags --mag_faa_dir ./ --mag_file_extension .faa
+    #tree_of_mags --mag_faa_dir ./ --mag_file_extension .faa
+    iqtree2 -s ./alignments/concatenated_alignment -nt 64 -bb 1000 -wbtl
 
-     iqtree2 -s ./alignments/concatenated_alignment -nt 64 -bb 1000 -wbtl
+Or using FasttreeMP:
 
+    cd /home/lianchun.yi1/data/faa_all
+    export OMP_NUM_THREADS=32
+    FastTreeMP ./alignments/concatenated_alignment > fasttree.treefile
 
 
 reconcile_tree.slurm
