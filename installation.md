@@ -179,7 +179,7 @@ When running GenRax:
 
     salloc --mem=20G -c 1 -N 1 -n 2  -t 04:00:00
     conda activate generax_env
-    module load openmpi/4.0.2-gnu730
+    module load openmpi/4.1.1-gnu
     mpirun -np 2 generax -h
     
     
