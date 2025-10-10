@@ -182,4 +182,22 @@ When running GenRax:
     module load openmpi/4.1.1-gnu
     mpirun -np 2 generax -h
     
-    
+### [AleRax]
+
+    git clone --recursive https://github.com/BenoitMorel/AleRax
+    git config --global http.sslVerify "false"
+    cd AleRax
+    module load cmake/3.30.1
+    ./install.sh
+    cd build
+    cmake .. -DCMAKE_INSTALL_PREFIX=/home/lianchun.yi1/software/
+    make -j 4
+    make install
+    nano ~/.bashrc
+
+Adding the following line to the ~/.bashrc file:
+
+    export PATH=/home/lianchun.yi1/software/bin:$PATH
+Then
+    source ~/.bashrc
+    alerax --help
