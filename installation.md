@@ -182,7 +182,7 @@ When running GenRax:
     module load openmpi/4.1.1-gnu
     mpirun -np 2 generax -h
     
-### [AleRax])(https://github.com/BenoitMorel/AleRax/blob/main/README.md）
+### [AleRax](https://github.com/BenoitMorel/AleRax/blob/main/README.md）
 
     git clone --recursive https://github.com/BenoitMorel/AleRax
     git config --global http.sslVerify "false"
@@ -199,5 +199,6 @@ Adding the following line to the ~/.bashrc file:
 
     export PATH=/home/lianchun.yi1/software/bin:$PATH
 Then
+
     source ~/.bashrc
     alerax --help
