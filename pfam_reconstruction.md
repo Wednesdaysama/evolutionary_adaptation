@@ -110,6 +110,7 @@ Or using FasttreeMP. It only takes 1.5 hours when applying 32 threads:
     export OMP_NUM_THREADS=32
     FastTreeMP ./alignments/concatenated_alignment > fasttree.treefile
 
+This tree is an **unrooted** species tree. Running AleRax to infer a rooted one.
 
 reconcile_tree.slurm
 
