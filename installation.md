@@ -182,7 +182,7 @@ When running GenRax:
     module load openmpi/4.1.1-gnu
     mpirun -np 2 generax -h
     
-### [AleRax]
+### [AleRax])(https://github.com/BenoitMorel/AleRax/blob/main/README.md）
 
     git clone --recursive https://github.com/BenoitMorel/AleRax
     git config --global http.sslVerify "false"
