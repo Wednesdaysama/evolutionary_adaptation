@@ -168,7 +168,7 @@ print the originatation event that happened at which node
 
     grep "^>" ATPase.filtered.aln.faa \
     | sed -E 's/^>([^ ]*).*/\1/' \
-    | awk -F'.' '{first=$1; sub(/^[^.]*\./,""); print first"\t"$0}' \
+    | awk -F'.' '{first=$1; sub(/^[^.]*\./,""); print $0"\t"first}' \
     > mapping.link
     
 #### Prepare family file
