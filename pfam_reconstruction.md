@@ -104,7 +104,7 @@ treeOfMags_iqtree.slurm
     #tree_of_mags --mag_faa_dir ./ --mag_file_extension .faa
     iqtree2 -s ./alignments/concatenated_alignment -nt 64 -bb 1000 -wbtl
 
-Or using FasttreeMP:
+Or using FasttreeMP. It only takes 1.5 hours when applying 32 threads:
 
     cd /home/lianchun.yi1/data/faa_all
     export OMP_NUM_THREADS=32
