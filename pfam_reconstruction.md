@@ -94,7 +94,7 @@ treeOfMags_iqtree.slurm
     #SBATCH --ntasks=1          
     #SBATCH --cpus-per-task=64
     #SBATCH --mem=500G           
-    #SBATCH --time=100:00:00       # tree_of_mags: 15 hours. Iqtree spends ... min
+    #SBATCH --time=168:00:00       # tree_of_mags: 15 hours. Iqtree spends 400 hours
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca  
     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END>
     pwd; hostname; date
@@ -104,13 +104,8 @@ treeOfMags_iqtree.slurm
     #tree_of_mags --mag_faa_dir ./ --mag_file_extension .faa
     iqtree2 -s ./alignments/concatenated_alignment -nt 64 -bb 1000 -wbtl
 
-Or using FasttreeMP. It only takes 1.5 hours when applying 32 threads:
-
-    cd /home/lianchun.yi1/data/faa_all
-    export OMP_NUM_THREADS=32
-    FastTreeMP ./alignments/concatenated_alignment > fasttree.treefile
-
-This tree is an **unrooted** species tree. Running [AleRax](https://github.com/BenoitMorel/AleRax/blob/main/README.md) to infer a rooted one.
+This tree, concatenated_alignment.treefile, is an **unrooted** species tree. Root this tree with Itol tree
+Running [AleRax](https://github.com/BenoitMorel/AleRax/blob/main/README.md) to infer a rooted one.
 
 
 reconcile_tree.slurm
