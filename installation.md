@@ -202,3 +202,11 @@ Then
 
     source ~/.bashrc
     alerax --help
+
+### [Thirdkind] (https://github.com/simonpenel/thirdkind)
+
+    curl https://sh.rustup.rs -sSf | sh
+    source ~/.cargo/env
+    cargo install thirdkind
+    thirdkind --help
+    
