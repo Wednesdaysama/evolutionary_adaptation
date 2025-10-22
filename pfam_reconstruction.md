@@ -1,5 +1,5 @@
 ### Launch an interactive session on ARC:
-     salloc --mem=20G -c 8 -N 1 -n 1  -t 04:00:00
+     salloc --mem=20G -c 1 -N 1 -n 1  -t 04:00:00
 ### Collecting data
 #### Species trees
 Upload the environment.xlsx file to /home/lianchun.yi1/data/pfam_reconstruction/PF00122/ale. And run:
