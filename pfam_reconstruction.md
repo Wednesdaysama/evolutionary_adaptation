@@ -177,9 +177,11 @@ print the originatation event that happened at which node
     mapping = /home/lianchun.yi1/data/pfam_reconstruction/PF00122/mapping.link
     subst_model = GTR+G
 
-
-
 Remove internal node ID:
      perl -0777 -pe 's/\)\s*\d+(\.\d+)?\s*:/):/g' bac120_r214.tree.with_missing_leaves.tree.clean > removed_internal_nodeID.newick
 
 
+
+### Select the root of homologous proteins
+To make choosing the gene root of the sets of alkaline-enriched homologous proteins defendable, I provide a script to choose the best root of the gene tree.
+This script searches an internal node in the bigger Pfam gene tree that contains the highest alkaline vs non-alkaline gene ratio (excluding the 22 missing genomes).
