@@ -183,5 +183,5 @@ Remove internal node ID:
 
 
 ### Select the root of homologous proteins
-To make choosing the gene root of the sets of alkaline-enriched homologous proteins defendable, I provide a script to choose the best root of the gene tree.
-This script searches an internal node in the bigger Pfam gene tree that contains the highest alkaline vs non-alkaline gene ratio (excluding the 22 missing genomes).
+To ensure the selection of the gene root for the sets of alkaline-enriched homologous proteins is justified, I provide a script to identify the optimal gene tree root. 
+This script identifies an internal node in the larger Pfam gene tree with the highest ratio of alkaline to non-alkaline genes (excluding the 22 missing genomes).
