@@ -211,6 +211,7 @@ Then
     thirdkind --help
     
 ### [PhyloRank](https://github.com/donovan-h-parks/PhyloRank/tree/master)
+Need to control the versions of matplotlib and mpld
 
     source ~/bio/bin/3.10_python-env/bin/activate
-    pip install phylorank
+    pip install phylorank matplotlib==3.3.4 mpld3==0.5.11
