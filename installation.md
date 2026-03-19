@@ -217,3 +217,12 @@ Then
     python3 -m venv /home/lianchun.yi1/bio/bin/phylorank
     source /home/lianchun.yi1/bio/bin/phylorank/bin/activate
     pip install phylorank matplotlib==3.3.4 mpld3==0.5.10 numpy==1.26.4 packaging
+
+### [PastML](https://github.com/evolbioinfo/pastml)
+
+    module load python/3.10.4
+    python3 -m venv /home/lianchun.yi1/bio/bin/pastml
+    source /home/lianchun.yi1/bio/bin/pastml/bin/activate
+    pip install pastml
+    pastml -h
+    
