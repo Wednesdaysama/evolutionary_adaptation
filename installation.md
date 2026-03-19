@@ -210,3 +210,7 @@ Then
     cargo install thirdkind
     thirdkind --help
     
+### [PhyloRank](https://github.com/donovan-h-parks/PhyloRank/tree/master)
+
+    source ~/bio/bin/3.10_python-env/bin/activate
+    pip install phylorank
