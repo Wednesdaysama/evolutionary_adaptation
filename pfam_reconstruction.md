@@ -160,7 +160,7 @@ print the originatation event that happened at which node
     awk -F',' 'NR>1 && $6 > 0.5' Total_copies_at_node/Sum_of_DTLSC_at_each_node.csv
 
 
-### Reconciling with [GeneRax](https://github.com/BenoitMorel/GeneRax) or [AleRax](https://github.com/BenoitMorel/AleRax/blob/main/README.md)
+### Reconciling with [AleRax](https://github.com/BenoitMorel/AleRax/blob/main/README.md)
 #### Prepare a mapping file
 
     grep "^>" ATPase.filtered.aln.faa \
@@ -187,7 +187,7 @@ The root was selected at the last common ancestor of all terrabacteria.
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=1
     #SBATCH --mem=50G
-    #SBATCH --time=168:00:00                       # running time: ~ 4 hours
+    #SBATCH --time=03:00:00                       # running time: ~ 2 hours
     #SBATCH --mail-user=lianchun.yi1@ucalgary.ca
     #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END><ALL>
     pwd; hostname; date
