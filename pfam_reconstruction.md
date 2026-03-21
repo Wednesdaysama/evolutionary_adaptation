@@ -160,28 +160,53 @@ print the originatation event that happened at which node
     awk -F',' 'NR>1 && $6 > 0.5' Total_copies_at_node/Sum_of_DTLSC_at_each_node.csv
 
 
-### Reconciling with [GeneRax](https://github.com/BenoitMorel/GeneRax)
-#### Prepare mapping file
+### Reconciling with [GeneRax](https://github.com/BenoitMorel/GeneRax) or [AleRax](https://github.com/BenoitMorel/AleRax/blob/main/README.md)
+#### Prepare a mapping file
 
     grep "^>" ATPase.filtered.aln.faa \
     | sed -E 's/^>([^ ]*).*/\1/' \
     | awk -F'.' '{species=$1; print species":"$0}' \
     > mapping.link
     
-#### Prepare family file
+#### Prepare a family file
 
     [FAMILIES]
     - ATPase
-    alignment = /home/lianchun.yi1/data/pfam_reconstruction/PF00122/ATPase.filtered.aln.faa
-    starting_gene_tree = /home/lianchun.yi1/data/pfam_reconstruction/PF00122/ATPase.filtered.aln.faa.treefile
+    gene_tree = /home/lianchun.yi1/data/pfam_reconstruction/PF00122/ATPase.filtered.aln.faa.treefile
     mapping = /home/lianchun.yi1/data/pfam_reconstruction/PF00122/mapping.link
-    subst_model = GTR+G
-
-Remove internal node ID:
-     perl -0777 -pe 's/\)\s*\d+(\.\d+)?\s*:/):/g' bac120_r214.tree.with_missing_leaves.tree.clean > removed_internal_nodeID.newick
 
 
+#### alerax.slurm
+In the following file, "root_2622_Terra.newick" is a rooted species tree with 2622 species. 
+The root was selected at the last common ancestor of all terrabacteria.
 
-### Select the root of homologous proteins
-To ensure the selection of the gene root for the sets of alkaline-enriched homologous proteins is justified, I provide a script to identify the optimal gene tree root. 
-This script identifies an internal node in the larger Pfam gene tree with the highest ratio of alkaline to non-alkaline genes (excluding the 22 missing genomes).
+    #!/bin/bash
+    #SBATCH --job-name=alerax_ATPase
+    #SBATCH --output=%x.log
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=1
+    #SBATCH --mem=50G
+    #SBATCH --time=168:00:00                       # running time: ~ 4 hours
+    #SBATCH --mail-user=lianchun.yi1@ucalgary.ca
+    #SBATCH --mail-type=ALL                       # Send the type: <BEGIN><FAIL><END><ALL>
+    pwd; hostname; date
+
+    cd /home/lianchun.yi1/data/pfam_reconstruction/PF00122/alerax
+
+    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+    mpiexec -np 1 alerax \
+      -f ./family.txt \
+      -s ../../root_2622_Terra.newick \
+      --gene-tree-rooting UNIFORM \
+      --prefix results
+
+#### Result visualization
+
+    cd ./results/reconciliations/all
+    ls ATPase*.xml > list_ATPase.txt
+    thirdkind -f list_ATPase.txt -t 1 -m -b -P -M -X -d 20 -D 40 -k 8 -I -o ATPase_t1.svg
+    thirdkind -f list_ATPase.txt -t 25 -m -b -P -M -X -J -d 20 -D 40 -k 8 -I -o ATPase_t25.svg
+
+
