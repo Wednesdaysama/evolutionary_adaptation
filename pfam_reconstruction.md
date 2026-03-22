@@ -160,7 +160,7 @@ print the originatation event that happened at which node
     awk -F',' 'NR>1 && $6 > 0.5' Total_copies_at_node/Sum_of_DTLSC_at_each_node.csv
 
 
-### Reconciling with [AleRax](https://github.com/BenoitMorel/AleRax/blob/main/README.md)
+### Reconciling by [AleRax](https://github.com/BenoitMorel/AleRax/blob/main/README.md)
 #### Prepare a mapping file
 
     grep "^>" ATPase.filtered.aln.faa \
