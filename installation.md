@@ -92,16 +92,6 @@ Running puppy to design primers for a group:
     puppy-align -pr target_genomes -nt non_target_genomes -o output
     puppy-primers -pr target_genomes/ -i ./output/ResultDB.tsv -o primer/ -p group
 
-### [ncbi-genome-download](https://github.com/kblin/ncbi-genome-download)
-Install:
-
-    pip install ncbi-genome-download
-Prepare a list containing the accession numbers of NCBI via **nano download_list**. In this list, every line only contains one accession number without **GB_** or **RS_**. Then run:
-
-    ncbi-genome-download --section genbank --formats fasta --assembly-accessions GCA_list bacteria --flat-output # download GCA
-    ncbi-genome-download --formats fasta --assembly-accessions GCF_list bacteria --flat-output                   # download GCF
-    gunzip *.fna.gz
-
 ### [iqtree2](https://github.com/iqtree/iqtree2/releases)
 Install:
 download the latest release in /home/lianchun.yi1/software/iqtree2: iqtree-2.3.4-Linux-intel.tar.gz
@@ -226,3 +216,19 @@ Then
     pip install pastml
     pastml -h
     
+### [Datasets CLI](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/how-tos/genomes/large-download/?utm_source=chatgpt.com)
+Installing NCBI Datasets...
+
+    conda create -n ncbi_datasets
+    conda activate ncbi_datasets
+    conda install -c conda-forge ncbi-datasets-cli
+
+Preparing GCA_accessions file. The format should be like this:
+
+    GCA_003550565.1
+    GCA_003551215.1
+    GCA_003551805.1
+
+Running the following command line to download genome, protein, cds, and gff3 files
+
+    datasets download genome accession --inputfile GCF_accessions --include genome,protein,cds,gff3 --filename GCF_accessions.zip # for protein sequences
