@@ -231,4 +231,4 @@ Preparing GCA_accessions file. The format should be like this:
 
 Running the following command line to download genome, protein, cds, and gff3 files
 
-    datasets download genome accession --inputfile GCF_accessions --include genome,protein,cds,gff3 --filename GCF_accessions.zip # for protein sequences
+    datasets download genome accession --inputfile GCF_accessions --include genome,protein,cds,gff3 --filename GCF_accessions.zip
